@@ -1,12 +1,11 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import Sides from "./Sides";
-import Hero from "./Hero";
 
-const Layout = () => {
+const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="w-full">
+    <div className="flex w-full">
       <Sides />
-      <Hero />
+      <main className="w-10/12">{children}</main>
     </div>
   );
 };
