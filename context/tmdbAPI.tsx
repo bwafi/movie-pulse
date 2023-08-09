@@ -1,7 +1,7 @@
 "use client";
 import { StateProps } from "@/libs/type";
 import { useContext, createContext, ReactNode, useReducer, useEffect } from "react";
-import { discoverMovies } from "@/libs/apiCall";
+import { discoverMovies } from "@/api/apiCall";
 import reducer from "./reducer/reducer";
 
 const initialState: StateProps = {

@@ -3,7 +3,7 @@ import Image from "next/image";
 import React from "react";
 import { Autoplay, Navigation } from "swiper/modules";
 import { ContextApi } from "@/context/tmdbAPI";
-import { IMAGE_URL } from "@/libs/apiConfig";
+import { IMAGE_URL } from "@/api/apiConfig";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
