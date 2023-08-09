@@ -8,3 +8,11 @@ export const discoverMovies = () => {
     },
   });
 };
+
+export const getTrendings = (timeTrending: string) => {
+  return axios.get(`${BASE_URL}/trending/movie/${timeTrending}`, {
+    params: {
+      api_key: API_KEY,
+    },
+  });
+};

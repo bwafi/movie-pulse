@@ -1,4 +1,4 @@
-import { ActionProps, StateProps } from "@/libs/type";
+import { ActionProps, StateProps } from "../tmdbAPI";
 
 const reducer = (state: StateProps, action: ActionProps) => {
   switch (action.type) {
@@ -6,6 +6,17 @@ const reducer = (state: StateProps, action: ActionProps) => {
       return {
         ...state,
         discovers: action.payload,
+      };
+    case "GET_TRENDING_DAY":
+      return {
+        ...state,
+        trendings: action.payload,
+      };
+
+    case "GET_TRENDING_WEEK":
+      return {
+        ...state,
+        trendings: action.payload,
       };
 
     default:

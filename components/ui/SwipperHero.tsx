@@ -45,9 +45,9 @@ const SwipperHero = () => {
                   className="shadow-[0px_0px_12px_3px_rgba(0,0,0,0.57)] rounded"
                 />
               </div>
-              <div className="absolute w-fit top-36 left-48 before:content=[''] before:absolute before:block before:w-3 before:h-full before:bg-teal before:rounded-sm">
+              <div className="absolute w-fit top-32 left-48 before:content=[''] before:absolute before:block before:w-3 before:h-full before:bg-teal before:rounded-sm">
                 <div className="ml-8">
-                  <p className="text-xs">Release : {item.release_date}</p>
+                  <p className="text-xs text-teal">Release : {item.release_date}</p>
                   <h1 className="text-[34px] font-semibold">{item.title}</h1>
                   <span className="w-8 h-8 flex justify-center items-center text-xs font-semibold rounded-full border-[3px] border-teal my-1">
                     {item.vote_average}
