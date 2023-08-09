@@ -14,3 +14,12 @@ export interface DiscoverProps {
   vote_average: number;
   vote_count: number;
 }
+
+export interface StateProps {
+  discovers: DiscoverProps[];
+}
+
+export interface ActionProps {
+  type: string;
+  payload: any;
+}
