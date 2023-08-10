@@ -7,6 +7,8 @@ import reducer from "./reducer/reducer";
 export interface StateProps {
   discovers: DiscoverProps[];
   trendings: TrendingProps[];
+  isLoading: boolean;
+  isError: boolean;
   handleTrendingDay?: () => void;
   handleTrendingWeek?: () => void;
 }
@@ -19,6 +21,8 @@ export interface ActionProps {
 const initialState: StateProps = {
   discovers: [],
   trendings: [],
+  isLoading: true,
+  isError: false,
 };
 
 export const GlobalContext = createContext(initialState);
@@ -65,6 +69,8 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
   const value = {
     discovers: state.discovers,
     trendings: state.trendings,
+    isLoading: state.isLoading,
+    isError: state.isError,
     handleTrendingDay,
     handleTrendingWeek,
   };
