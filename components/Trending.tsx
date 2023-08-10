@@ -1,15 +1,14 @@
-"use client";
-import { ContextApi } from "@/context/tmdbAPI";
 import React from "react";
 
 const Trending = () => {
-  const { handleTrendingDay, handleTrendingWeek, trendings } = ContextApi();
-
   return (
-    <div>
-      <button onClick={handleTrendingDay}>Trending Today</button>
-      <button onClick={handleTrendingWeek}>Trending Week</button>
-    </div>
+    <section className="w-full overflow-hidden my-16">
+      <div className="w-full px-3">
+        <div>
+          <h1 className="text-2xl font-semibold tracking-wider">Trending</h1>
+        </div>
+      </div>
+    </section>
   );
 };
 

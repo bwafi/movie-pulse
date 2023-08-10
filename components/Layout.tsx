@@ -3,9 +3,9 @@ import Sides from "./Sides";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="flex w-full">
+    <div className="grid grid-cols-12 w-full">
       <Sides />
-      <main className="w-full ml-[16%] overflow-x-hidden">{children}</main>
+      <main className="col-start-3 col-end-13 overflow-x-hidden">{children}</main>
     </div>
   );
 };
