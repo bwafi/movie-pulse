@@ -6,7 +6,7 @@ import React from "react";
 import { AiFillStar } from "react-icons/ai";
 
 const Trending = () => {
-  const { trendings } = ContextApi();
+  const { trendings, handleTrendingDay, handleTrendingWeek } = ContextApi();
 
   return (
     <section className="w-full overflow-hidden my-16 mx-3">
@@ -14,16 +14,20 @@ const Trending = () => {
         <div className="relative flex items-center gap-5 before:content-[''] before:absolute before:block before:w-1 before:h-3/4 before:bg-teal before:rounded-full">
           <h1 className="ml-3 text-2xl font-semibold ">Trending</h1>
           <div className="relative border border-teal rounded-full text-sm z-[1]">
-            <button className="py-0.5 px-5 ">Day</button>
-            <button className="py-0.5 px-5">Week</button>
+            <button onClick={handleTrendingDay} className="py-0.5 px-5 ">
+              Day
+            </button>
+            <button onClick={handleTrendingWeek} className="py-0.5 px-5">
+              Week
+            </button>
             <div className="absolute top-0 w-6/12 h-full bg-teal rounded-full z-[-1]"></div>
           </div>
         </div>
         <p className="mt-1">Trending Movie Just For You</p>
       </div>
-      <div className="flex gap-5 w-full my-6 overflow-x-scroll">
+      <div className="flex gap-5 w-full my-6 overflow-x-scroll custom-scroll">
         {trendings.map((item, index: number) => (
-          <div key={index} className="mb-10 min-w-[16%] min-h-[350px] rounded-md overflow-hidden bg-black shadow">
+          <div key={index} className="mb-10 min-w-[16%] min-h-[350px] rounded-md overflow-hidden bg-black shadow-md">
             <div className="relative w-full h-4/6">
               <Image src={`${IMAGE_URL}${item.poster_path}`} alt={item.title} fill />
             </div>
