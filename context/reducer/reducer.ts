@@ -11,15 +11,12 @@ const reducer = (state: StateProps, action: ActionProps) => {
     case "GET_TRENDING_DAY":
       return {
         ...state,
-        trendings: action.payload,
-        isLoading: false,
+        trendingsDay: action.payload,
       };
-
     case "GET_TRENDING_WEEK":
       return {
         ...state,
-        trendings: action.payload,
-        isLoading: false,
+        trendingsWeek: action.payload,
       };
 
     default:

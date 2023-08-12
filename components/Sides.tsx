@@ -29,8 +29,8 @@ const navLinks = [
 
 const Sides = () => {
   return (
-    <nav className="col-start-1 col-end-3 h-screen block bg-soft-black fixed left-0 top-0 z-50">
-      <div className="w-full px-4 py-5">
+    <nav className=" h-screen block bg-soft-black fixed left-0 top-0 z-50">
+      <div className="w-full p-5">
         <div className="flex items-center gap-8">
           <h1 className="text-2xl font-semibold text-teal">MoviePulse</h1>
           <button>

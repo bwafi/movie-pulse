@@ -6,11 +6,10 @@ import reducer from "./reducer/reducer";
 
 export interface StateProps {
   discovers: DiscoverProps[];
-  trendings: TrendingProps[];
+  trendingsDay: TrendingProps[];
+  trendingsWeek: TrendingProps[];
   isLoading: boolean;
   isError: boolean;
-  handleTrendingDay?: () => void;
-  handleTrendingWeek?: () => void;
 }
 
 export interface ActionProps {
@@ -20,7 +19,8 @@ export interface ActionProps {
 
 const initialState: StateProps = {
   discovers: [],
-  trendings: [],
+  trendingsDay: [],
+  trendingsWeek: [],
   isLoading: true,
   isError: false,
 };
@@ -46,33 +46,21 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
         payload: result.data.results,
       });
     });
-  }, []);
 
-  const handleTrendingDay = () => {
-    getTrendings("day").then((result) => {
-      dispatch({
-        type: "GET_TRENDING_DAY",
-        payload: result.data.results,
-      });
-    });
-  };
-
-  const handleTrendingWeek = () => {
     getTrendings("week").then((result) => {
       dispatch({
         type: "GET_TRENDING_WEEK",
         payload: result.data.results,
       });
     });
-  };
+  }, []);
 
   const value = {
     discovers: state.discovers,
-    trendings: state.trendings,
+    trendingsDay: state.trendingsDay,
+    trendingsWeek: state.trendingsWeek,
     isLoading: state.isLoading,
     isError: state.isError,
-    handleTrendingDay,
-    handleTrendingWeek,
   };
 
   return <GlobalContext.Provider value={value}>{children}</GlobalContext.Provider>;

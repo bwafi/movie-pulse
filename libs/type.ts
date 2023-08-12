@@ -16,6 +16,7 @@ export interface DiscoverProps {
 }
 
 export interface TrendingProps {
+  page: number;
   adult: boolean;
   backdrop_path: string;
   genre_ids: number[];

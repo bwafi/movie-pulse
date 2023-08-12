@@ -1,15 +1,23 @@
 "use client";
-import { IMAGE_URL } from "@/api/apiConfig";
 import { ContextApi } from "@/context/tmdbAPI";
-import Image from "next/image";
-import React from "react";
-import { AiFillStar } from "react-icons/ai";
+import React, { useState } from "react";
+import Card from "./ui/Card";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Trending = () => {
-  const { trendings, handleTrendingDay, handleTrendingWeek } = ContextApi();
+  const { trendingsDay, trendingsWeek } = ContextApi();
+  const [currentTrending, setCurrentTrending] = useState<"day" | "week">("day");
+
+  const handleTrendingDay = () => {
+    setCurrentTrending("day");
+  };
+
+  const handleTrendingWeek = () => {
+    setCurrentTrending("week");
+  };
 
   return (
-    <section className="w-full overflow-hidden my-16 mx-3">
+    <section className="w-full my-16 mx-3">
       <div className="w-full">
         <div className="relative flex items-center gap-5 before:content-[''] before:absolute before:block before:w-1 before:h-3/4 before:bg-teal before:rounded-full">
           <h1 className="ml-3 text-2xl font-semibold ">Trending</h1>
@@ -20,30 +28,44 @@ const Trending = () => {
             <button onClick={handleTrendingWeek} className="py-0.5 px-5">
               Week
             </button>
-            <div className="absolute top-0 w-6/12 h-full bg-teal rounded-full z-[-1]"></div>
+            <div
+              className={`absolute top-0 w-6/12 h-full bg-teal rounded-full z-[-1] transition-transform ${
+                currentTrending === "day" ? "translate-x-0" : "translate-x-full"
+              }`}></div>
           </div>
         </div>
         <p className="mt-1">Trending Movie Just For You</p>
       </div>
-      <div className="flex gap-5 w-full my-6 overflow-x-scroll custom-scroll">
-        {trendings.map((item, index: number) => (
-          <div key={index} className="mb-10 min-w-[16%] min-h-[350px] rounded-md overflow-hidden bg-black shadow-md">
-            <div className="relative w-full h-4/6">
-              <Image src={`${IMAGE_URL}${item.poster_path}`} alt={item.title} fill />
-            </div>
-            <div className="mx-2 my-2">
-              <div className="flex items-center gap-1">
-                <AiFillStar className="text-lg text-teal" />
-                <p className="tracking-widest">{item.vote_average.toFixed(1)}</p>
-              </div>
-              <div className="h-[40px]">
-                <h1 className="mt-1 text-lg font-semibold line-clamp-2 leading-5">{item.original_title}</h1>
-              </div>
-              <p className="mt-3 text-sm font-light">32-22-2003</p>
-            </div>
-          </div>
-        ))}
-      </div>
+
+      <AnimatePresence mode="wait">
+        {currentTrending === "day" && (
+          <motion.div
+            key="day"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ ease: [0.17, 0.18, 0.19, 0.2] }}
+            className="flex gap-5 w-full my-6 overflow-x-scroll">
+            {trendingsDay.map((item, index) => (
+              <Card key={index} item={item} />
+            ))}
+          </motion.div>
+        )}
+
+        {currentTrending === "week" && (
+          <motion.div
+            key="week"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ ease: [0.17, 0.18, 0.19, 0.2] }}
+            className="flex gap-5 w-full my-6 overflow-x-scroll">
+            {trendingsWeek.map((item, index) => (
+              <Card key={index} item={item} />
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
