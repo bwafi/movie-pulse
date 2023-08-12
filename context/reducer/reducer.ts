@@ -1,4 +1,25 @@
-import { ActionProps, StateProps } from "../tmdbAPI";
+import { DiscoverProps, TrendingProps } from "@/libs/type";
+
+export interface StateProps {
+  discovers: DiscoverProps[];
+  trendingsMovieDay: TrendingProps[];
+  trendingsMovieWeek: TrendingProps[];
+  isLoading: boolean;
+  isError: boolean;
+}
+
+export interface ActionProps {
+  type: string;
+  payload: any;
+}
+
+export const initialState: StateProps = {
+  discovers: [],
+  trendingsMovieDay: [],
+  trendingsMovieWeek: [],
+  isLoading: true,
+  isError: false,
+};
 
 const reducer = (state: StateProps, action: ActionProps) => {
   switch (action.type) {
@@ -8,15 +29,15 @@ const reducer = (state: StateProps, action: ActionProps) => {
         discovers: action.payload,
         isLoading: false,
       };
-    case "GET_TRENDING_DAY":
+    case "GET_TRENDING_MOVIE_DAY":
       return {
         ...state,
-        trendingsDay: action.payload,
+        trendingsMovieDay: action.payload,
       };
-    case "GET_TRENDING_WEEK":
+    case "GET_TRENDING_MOVIE_WEEK":
       return {
         ...state,
-        trendingsWeek: action.payload,
+        trendingsMovieWeek: action.payload,
       };
 
     default:

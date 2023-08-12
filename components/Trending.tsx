@@ -5,7 +5,7 @@ import Card from "./ui/Card";
 import { AnimatePresence, motion } from "framer-motion";
 
 const Trending = () => {
-  const { trendingsDay, trendingsWeek } = ContextApi();
+  const { trendingsMovieDay, trendingsMovieWeek } = ContextApi();
   const [currentTrending, setCurrentTrending] = useState<"day" | "week">("day");
 
   const handleTrendingDay = () => {
@@ -46,7 +46,7 @@ const Trending = () => {
             exit={{ opacity: 0, y: -10 }}
             transition={{ ease: [0.17, 0.18, 0.19, 0.2] }}
             className="flex gap-5 w-full my-6 overflow-x-scroll">
-            {trendingsDay.map((item, index) => (
+            {trendingsMovieDay.map((item, index) => (
               <Card key={index} item={item} />
             ))}
           </motion.div>
@@ -60,7 +60,7 @@ const Trending = () => {
             exit={{ opacity: 0, y: -10 }}
             transition={{ ease: [0.17, 0.18, 0.19, 0.2] }}
             className="flex gap-5 w-full my-6 overflow-x-scroll">
-            {trendingsWeek.map((item, index) => (
+            {trendingsMovieWeek.map((item, index) => (
               <Card key={index} item={item} />
             ))}
           </motion.div>
