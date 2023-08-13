@@ -3,11 +3,9 @@ import Sides from "./Sides";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="grid grid-cols-12 w-full">
-      <div className="col-start-1 col-end-3">
-        <Sides />
-      </div>
-      <main className="col-start-3 col-end-13 overflow-x-hidden">{children}</main>
+    <div className="relative grid grid-cols-12 w-full mx-auto">
+      <Sides />
+      <div className="col-start-3 col-end-13 row-start-[-1] relative">{children}</div>
     </div>
   );
 };

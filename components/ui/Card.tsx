@@ -4,7 +4,7 @@ import { IMAGE_URL } from "@/api/apiConfig";
 
 const Card = ({ item }: { item: any }) => {
   return (
-    <div className="mb-10 min-w-[16%] min-h-[350px] last:mr-6 rounded-md overflow-hidden bg-black shadow-md">
+    <div className="mb-10 min-w-[17%] min-h-[350px] rounded-md overflow-hidden bg-black shadow-md">
       <div className="relative w-full h-4/6">
         <Image src={`${IMAGE_URL}${item.poster_path}`} alt={item.title} fill priority />
       </div>
