@@ -9,7 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
-const SwipperHero = () => {
+const SliderHero = () => {
   const { discovers } = ContextApi();
 
   return (
@@ -21,7 +21,7 @@ const SwipperHero = () => {
       }}
       navigation
       slidesPerView={1}>
-      {discovers.map((item, index: number) => (
+      {discovers.slice(0, 10).map((item, index: number) => (
         <SwiperSlide key={index}>
           <div className="w-full">
             <div className="w-full h-[480px] gradient-img relative before:content-[''] before:absolute before:block before:w-full before:h-full before:bg-black/40 before:z-10 ">
@@ -61,4 +61,4 @@ const SwipperHero = () => {
   );
 };
 
-export default SwipperHero;
+export default SliderHero;

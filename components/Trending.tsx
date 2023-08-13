@@ -1,12 +1,14 @@
 "use client";
 import { ContextApi } from "@/context/tmdbAPI";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Card from "./ui/Card";
-import { AnimatePresence, motion } from "framer-motion";
+import { CSSTransition, SwitchTransition } from "react-transition-group";
+import AnimationCard from "./ui/AnimationCard";
 
 const Trending = () => {
-  const { trendingsMovieDay, trendingsMovieWeek } = ContextApi();
+  const { trendingMovies } = ContextApi();
   const [currentTrending, setCurrentTrending] = useState<"day" | "week">("day");
+  const nodeRef = useRef(null);
 
   const handleTrendingDay = () => {
     setCurrentTrending("day");
@@ -37,35 +39,13 @@ const Trending = () => {
         <p className="mt-1">Trending Movie Just For You</p>
       </div>
 
-      <AnimatePresence mode="wait">
-        {currentTrending === "day" && (
-          <motion.div
-            key="day"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ ease: [0.17, 0.18, 0.19, 0.2] }}
-            className="flex gap-5 w-full my-6 overflow-x-scroll">
-            {trendingsMovieDay.map((item, index) => (
-              <Card key={index} item={item} />
-            ))}
-          </motion.div>
-        )}
-
-        {currentTrending === "week" && (
-          <motion.div
-            key="week"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ ease: [0.17, 0.18, 0.19, 0.2] }}
-            className="flex gap-5 w-full my-6 overflow-x-scroll">
-            {trendingsMovieWeek.map((item, index) => (
-              <Card key={index} item={item} />
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <AnimationCard keyAction={currentTrending}>
+        <div className="flex gap-5 w-full my-6 overflow-x-scroll">
+          {trendingMovies[currentTrending].map((item, index: number) => (
+            <Card key={index} item={item} />
+          ))}
+        </div>
+      </AnimationCard>
     </section>
   );
 };

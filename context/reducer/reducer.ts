@@ -2,8 +2,12 @@ import { DiscoverProps, TrendingProps } from "@/libs/type";
 
 export interface StateProps {
   discovers: DiscoverProps[];
-  trendingsMovieDay: TrendingProps[];
-  trendingsMovieWeek: TrendingProps[];
+  trendingMovies: {
+    day: TrendingProps[];
+    week: TrendingProps[];
+  };
+  // trendingsMovieDay: TrendingProps[];
+  // trendingsMovieWeek: TrendingProps[];
   isLoading: boolean;
   isError: boolean;
 }
@@ -15,8 +19,12 @@ export interface ActionProps {
 
 export const initialState: StateProps = {
   discovers: [],
-  trendingsMovieDay: [],
-  trendingsMovieWeek: [],
+  trendingMovies: {
+    day: [],
+    week: [],
+  },
+  // trendingsMovieDay: [],
+  // trendingsMovieWeek: [],
   isLoading: true,
   isError: false,
 };
@@ -32,12 +40,18 @@ const reducer = (state: StateProps, action: ActionProps) => {
     case "GET_TRENDING_MOVIE_DAY":
       return {
         ...state,
-        trendingsMovieDay: action.payload,
+        trendingMovies: {
+          ...state.trendingMovies,
+          day: action.payload,
+        },
       };
     case "GET_TRENDING_MOVIE_WEEK":
       return {
         ...state,
-        trendingsMovieWeek: action.payload,
+        trendingMovies: {
+          ...state.trendingMovies,
+          week: action.payload,
+        },
       };
 
     default:
