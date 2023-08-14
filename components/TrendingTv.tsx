@@ -11,10 +11,12 @@ const TrendingTv = () => {
   const [indexCard, setIndexCard] = useState(10);
 
   const handleTrendingDay = () => {
+    setIndexCard(10);
     setCurrentTrending("day");
   };
 
   const handleTrendingWeek = () => {
+    setIndexCard(10);
     setCurrentTrending("week");
   };
 

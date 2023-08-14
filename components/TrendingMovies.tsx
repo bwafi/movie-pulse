@@ -13,10 +13,12 @@ const TrendingMovies = () => {
   console.log(trendingMovies);
 
   const handleTrendingDay = () => {
+    setIndexCard(10);
     setCurrentTrending("day");
   };
 
   const handleTrendingWeek = () => {
+    setIndexCard(10);
     setCurrentTrending("week");
   };
 
