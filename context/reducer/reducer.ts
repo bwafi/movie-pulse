@@ -6,8 +6,10 @@ export interface StateProps {
     day: TrendingProps[];
     week: TrendingProps[];
   };
-  // trendingsMovieDay: TrendingProps[];
-  // trendingsMovieWeek: TrendingProps[];
+  trendingTv: {
+    day: TrendingProps[];
+    week: TrendingProps[];
+  };
   isLoading: boolean;
   isError: boolean;
 }
@@ -23,8 +25,10 @@ export const initialState: StateProps = {
     day: [],
     week: [],
   },
-  // trendingsMovieDay: [],
-  // trendingsMovieWeek: [],
+  trendingTv: {
+    day: [],
+    week: [],
+  },
   isLoading: true,
   isError: false,
 };
@@ -50,6 +54,24 @@ const reducer = (state: StateProps, action: ActionProps) => {
         ...state,
         trendingMovies: {
           ...state.trendingMovies,
+          week: action.payload,
+        },
+      };
+
+    case "GET_TRENDING_TV_DAY":
+      return {
+        ...state,
+        trendingTv: {
+          ...state.trendingTv,
+          day: action.payload,
+        },
+      };
+
+    case "GET_TRENDING_TV_WEEK":
+      return {
+        ...state,
+        trendingTv: {
+          ...state.trendingTv,
           week: action.payload,
         },
       };

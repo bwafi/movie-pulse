@@ -14,9 +14,9 @@ const Card = ({ item }: { item: any }) => {
           <p className="tracking-widest">{item.vote_average.toFixed(1)}</p>
         </div>
         <div className="h-[40px] flex items-center">
-          <h1 className="mt-1 font-semibold line-clamp-2 leading-5">{item.original_title}</h1>
+          <h1 className="mt-1 font-semibold line-clamp-2 leading-5">{item.original_title || item.original_name}</h1>
         </div>
-        <p className="mt-3 text-sm font-light ">{item.release_date}</p>
+        <p className="mt-3 text-sm font-light ">{item.release_date || item.first_air_date}</p>
       </div>
     </div>
   );

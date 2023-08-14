@@ -9,8 +9,16 @@ export const discoverMovies = async () => {
   });
 };
 
-export const getTrendings = async (timeTrending: string) => {
+export const getTrendingsMovies = async (timeTrending: string) => {
   return await axios.get(`${BASE_URL}/trending/movie/${timeTrending}`, {
+    params: {
+      api_key: API_KEY,
+    },
+  });
+};
+
+export const getTrendingsTv = async (timeTrending: string) => {
+  return await axios.get(`${BASE_URL}/trending/tv/${timeTrending}`, {
     params: {
       api_key: API_KEY,
     },

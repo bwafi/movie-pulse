@@ -1,6 +1,6 @@
 "use client";
 import React, { useContext, createContext, ReactNode, useReducer, useEffect } from "react";
-import { discoverMovies, getTrendings } from "@/api/apiCall";
+import { discoverMovies, getTrendingsMovies, getTrendingsTv } from "@/api/apiCall";
 import reducer, { initialState } from "./reducer/reducer";
 
 export const GlobalContext = createContext(initialState);
@@ -18,16 +18,30 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
       });
     });
 
-    getTrendings("day").then((result) => {
+    getTrendingsMovies("day").then((result) => {
       dispatch({
         type: "GET_TRENDING_MOVIE_DAY",
         payload: result.data.results,
       });
     });
 
-    getTrendings("week").then((result) => {
+    getTrendingsMovies("week").then((result) => {
       dispatch({
         type: "GET_TRENDING_MOVIE_WEEK",
+        payload: result.data.results,
+      });
+    });
+
+    getTrendingsTv("day").then((result) => {
+      dispatch({
+        type: "GET_TRENDING_TV_DAY",
+        payload: result.data.results,
+      });
+    });
+
+    getTrendingsTv("week").then((result) => {
+      dispatch({
+        type: "GET_TRENDING_TV_WEEK",
         payload: result.data.results,
       });
     });
