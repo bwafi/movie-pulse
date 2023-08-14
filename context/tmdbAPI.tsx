@@ -1,6 +1,6 @@
 "use client";
 import React, { useContext, createContext, ReactNode, useReducer, useEffect } from "react";
-import { discoverMovies, getTrendingsMovies, getTrendingsTv } from "@/api/apiCall";
+import { discoverMovies, getTrendingsMovies, getTrendingsTv, getUpcomingMovies } from "@/api/apiCall";
 import reducer, { initialState } from "./reducer/reducer";
 
 export const GlobalContext = createContext(initialState);
@@ -42,6 +42,13 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
     getTrendingsTv("week").then((result) => {
       dispatch({
         type: "GET_TRENDING_TV_WEEK",
+        payload: result.data.results,
+      });
+    });
+
+    getUpcomingMovies().then((result) => {
+      dispatch({
+        type: "GET_UPCOMING_MOVIES",
         payload: result.data.results,
       });
     });

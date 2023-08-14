@@ -2,9 +2,6 @@ import Image from "next/image";
 import { AiFillStar } from "react-icons/ai";
 import { IMAGE_URL } from "@/api/apiConfig";
 import dayjs from "dayjs";
-import "dayjs/locale/id";
-
-dayjs.locale("id");
 
 const Card = ({ item }: { item: any }) => {
   return (
@@ -18,7 +15,7 @@ const Card = ({ item }: { item: any }) => {
           <p className="tracking-widest">{item.vote_average.toFixed(1)}</p>
         </div>
         <div className="h-[40px] flex items-center">
-          <h1 className="mt-1 font-semibold line-clamp-2 leading-5">{item.original_title || item.original_name}</h1>
+          <h1 className="mt-1 font-semibold line-clamp-2 leading-5">{item.title || item.name}</h1>
         </div>
         <p className="mt-3 text-sm font-light ">
           {dayjs(item.release_date || item.first_air_date).format("MMM DD, YYYY")}

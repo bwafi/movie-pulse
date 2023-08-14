@@ -24,3 +24,11 @@ export const getTrendingsTv = async (timeTrending: string) => {
     },
   });
 };
+
+export const getUpcomingMovies = async () => {
+  return await axios.get(`${BASE_URL}/movie/upcoming`, {
+    params: {
+      api_key: API_KEY,
+    },
+  });
+};

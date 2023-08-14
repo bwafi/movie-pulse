@@ -5,10 +5,12 @@ import { Autoplay, Navigation } from "swiper/modules";
 import { ContextApi } from "@/context/tmdbAPI";
 import { IMAGE_URL } from "@/api/apiConfig";
 import { Swiper, SwiperSlide } from "swiper/react";
+import dayjs from "dayjs";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
+
 const SliderHero = () => {
   const { discovers } = ContextApi();
 
@@ -46,7 +48,7 @@ const SliderHero = () => {
               </div>
               <div className="absolute w-fit top-32 left-48 before:content=[''] before:absolute before:block before:w-3 before:h-full before:bg-teal before:rounded-xs">
                 <div className="ml-6">
-                  <p className="text-xs text-teal">Release : {item.release_date}</p>
+                  <p className="text-xs text-teal">Release : {dayjs(item.release_date).format("MMM DD, YYYY")}</p>
                   <h1 className="text-[34px] font-semibold">{item.title}</h1>
                   <span className="w-8 h-8 flex justify-center items-center text-xs font-semibold rounded-full border-[3px] border-teal my-1">
                     {item.vote_average}

@@ -1,14 +1,17 @@
-import { DiscoverProps, TrendingProps } from "@/libs/type";
+import { ApiPorps, DiscoverProps } from "@/libs/type";
 
 export interface StateProps {
   discovers: DiscoverProps[];
   trendingMovies: {
-    day: TrendingProps[];
-    week: TrendingProps[];
+    day: ApiPorps[];
+    week: ApiPorps[];
   };
   trendingTv: {
-    day: TrendingProps[];
-    week: TrendingProps[];
+    day: ApiPorps[];
+    week: ApiPorps[];
+  };
+  movies: {
+    upcoming: ApiPorps[];
   };
   isLoading: boolean;
   isError: boolean;
@@ -28,6 +31,9 @@ export const initialState: StateProps = {
   trendingTv: {
     day: [],
     week: [],
+  },
+  movies: {
+    upcoming: [],
   },
   isLoading: true,
   isError: false,
@@ -73,6 +79,15 @@ const reducer = (state: StateProps, action: ActionProps) => {
         trendingTv: {
           ...state.trendingTv,
           week: action.payload,
+        },
+      };
+
+    case "GET_UPCOMING_MOVIES":
+      return {
+        ...state,
+        movies: {
+          ...state.movies,
+          upcoming: action.payload,
         },
       };
 
