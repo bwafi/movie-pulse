@@ -14,7 +14,7 @@ const CardVideo = ({ item }: { item: ApiPorps }) => {
 
         <Image
           src={`${IMAGE_URL}${item.backdrop_path}`}
-          alt="sdva"
+          alt={`${item.title}`}
           className="rounded-lg group-hover:scale-105 transition-all"
           width={300}
           height={170}

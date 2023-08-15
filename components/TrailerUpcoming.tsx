@@ -2,8 +2,8 @@
 import { ContextApi } from "@/context/tmdbAPI";
 import React, { useEffect, useState } from "react";
 import CardVideo from "./ui/CardVideo";
-import { AiOutlineClose } from "react-icons/ai";
 import { getTrailerVideos } from "@/api/apiCall";
+import EmbedVideo from "./ui/EmbedVideo";
 
 const TrailerUpcoming = () => {
   const [movieId, setMovieId] = useState<number | null>(null);
@@ -12,16 +12,21 @@ const TrailerUpcoming = () => {
   const { movies } = ContextApi();
 
   useEffect(() => {
-    if (movieId) {
+    if (movieId)
       getTrailerVideos(movieId).then((res) => {
-        setMovieVideoKey(res.data.results[1].key);
+        const lastIndex = res.data.results.length - 1;
+        setMovieVideoKey(res.data.results[0].key);
       });
-    }
-  }, [movieId, movieVideoKey]);
+  }, [movieId]);
 
   const getMovieId = (id: number | null) => {
     setEmbedYtb(true);
     setMovieId(id);
+  };
+
+  const handleCloseEmbed = () => {
+    setEmbedYtb(false);
+    setMovieId(null);
   };
 
   return (
@@ -42,20 +47,7 @@ const TrailerUpcoming = () => {
           ))}
         </div>
       </section>
-      <div
-        className={`fixed bg-black/40 backdrop-blur top-0 left-0 items-center justify-center z-50 w-full h-screen ${
-          embedYtb ? "flex" : "hidden"
-        }`}>
-        <button onClick={() => setEmbedYtb(false)} className="absolute top-10 right-20">
-          <AiOutlineClose className="text-4xl" title="Close" />
-        </button>
-        <iframe
-          className="w-[800px] h-[500px]"
-          src={`https://www.youtube.com/embed/${movieVideoKey}`}
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen></iframe>
-      </div>
+      <EmbedVideo handleCloseEmbed={handleCloseEmbed} movieVideoKey={movieVideoKey} embedYtb={embedYtb} />
     </>
   );
 };
