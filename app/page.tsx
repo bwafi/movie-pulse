@@ -2,6 +2,7 @@ import Hero from "@/components/Hero";
 import Layout from "@/components/Layout";
 import TrailerUpcoming from "@/components/TrailerUpcoming";
 import TrendingMovies from "@/components/TrendingMovies";
+import TrendingPeople from "@/components/TrendingPeople";
 import TrendingTv from "@/components/TrendingTv";
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
         <TrendingMovies />
         <TrendingTv />
         <TrailerUpcoming />
+        <TrendingPeople />
       </Layout>
     </div>
   );

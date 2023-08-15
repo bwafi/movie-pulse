@@ -14,7 +14,6 @@ const TrailerUpcoming = () => {
   useEffect(() => {
     if (movieId)
       getTrailerVideos(movieId).then((res) => {
-        const lastIndex = res.data.results.length - 1;
         setMovieVideoKey(res.data.results[0].key);
       });
   }, [movieId]);
@@ -34,7 +33,7 @@ const TrailerUpcoming = () => {
       <section className="w-full py-8">
         <div className="w-fit px-3">
           <div className="relative flex items-center before:content-[''] before:absolute before:block before:w-1 before:h-3/4 before:bg-teal before:rounded-full">
-            <h1 className="ml-3 text-2xl font-semibold ">Trending TV Show</h1>
+            <h1 className="ml-3 text-2xl font-semibold ">Coming soon to theaters</h1>
           </div>
           <p>Trailers for upcoming releases</p>
         </div>

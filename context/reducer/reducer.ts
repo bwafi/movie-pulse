@@ -13,6 +13,13 @@ export interface StateProps {
   movies: {
     upcoming: ApiPorps[];
   };
+  people: {
+    trending: {
+      day: ApiPorps[];
+      week: ApiPorps[];
+    };
+    popular: ApiPorps[];
+  };
   isLoading: boolean;
   isError: boolean;
 }
@@ -34,6 +41,13 @@ export const initialState: StateProps = {
   },
   movies: {
     upcoming: [],
+  },
+  people: {
+    trending: {
+      day: [],
+      week: [],
+    },
+    popular: [],
   },
   isLoading: true,
   isError: false,
@@ -88,6 +102,15 @@ const reducer = (state: StateProps, action: ActionProps) => {
         movies: {
           ...state.movies,
           upcoming: action.payload,
+        },
+      };
+
+    case "GET_TRENDING_PEOPLE":
+      return {
+        ...state,
+        people: {
+          ...state.people,
+          trending: action.payload,
         },
       };
 
