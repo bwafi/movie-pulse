@@ -28,6 +28,7 @@ export interface ApiPorps {
   popularity: number;
   poster_path: string;
   release_date?: string;
+  profile_path?: string;
   first_air_date?: string;
   title?: string;
   name?: string;

@@ -61,14 +61,14 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 
     getTrendingPeople("day").then((result) => {
       dispatch({
-        type: "GET_TRENDING_PEOPLE",
+        type: "GET_TRENDING_PEOPLE_DAY",
         payload: result.data.results,
       });
     });
 
     getTrendingPeople("week").then((result) => {
       dispatch({
-        type: "GET_TRENDING_PEOPLE",
+        type: "GET_TRENDING_PEOPLE_WEEK",
         payload: result.data.results,
       });
     });

@@ -7,7 +7,7 @@ const Card = ({ item }: { item: any }) => {
   return (
     <div className="mb-10 min-w-[17%] min-h-[350px] rounded-md overflow-hidden bg-black shadow-md">
       <div className="relative w-full h-4/6">
-        <Image src={`${IMAGE_URL}${item.poster_path}`} alt={item.title} fill priority />
+        <Image src={`${IMAGE_URL}${item.poster_path}`} alt={item.title || item.name} fill priority />
       </div>
       <div className="mx-2 my-2">
         <div className="flex items-center gap-1">

@@ -42,7 +42,7 @@ export const getTrailerVideos = async (movie_id: number | null) => {
 };
 
 export const getTrendingPeople = async (timeTrending: string) => {
-  return await axios.get(`${BASE_URL}/trending/person/day`, {
+  return await axios.get(`${BASE_URL}/trending/person/${timeTrending}`, {
     params: {
       api_key: API_KEY,
     },

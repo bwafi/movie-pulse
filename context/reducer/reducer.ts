@@ -105,12 +105,27 @@ const reducer = (state: StateProps, action: ActionProps) => {
         },
       };
 
-    case "GET_TRENDING_PEOPLE":
+    case "GET_TRENDING_PEOPLE_DAY":
       return {
         ...state,
         people: {
           ...state.people,
-          trending: action.payload,
+          trending: {
+            ...state.people.trending,
+            day: action.payload,
+          },
+        },
+      };
+
+    case "GET_TRENDING_PEOPLE_WEEK":
+      return {
+        ...state,
+        people: {
+          ...state.people,
+          trending: {
+            ...state.people.trending,
+            week: action.payload,
+          },
         },
       };
 
