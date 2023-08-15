@@ -25,7 +25,7 @@ const TrendingPeople = () => {
   };
 
   return (
-    <section className="w-full px-3 my-16">
+    <section className="w-full px-3 my-20">
       <div className="w-full">
         <TitleSection
           handleTrendingDay={handleTrendingDay}

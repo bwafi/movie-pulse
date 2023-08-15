@@ -22,7 +22,7 @@ const TrendingMovies = () => {
   };
 
   return (
-    <section className="w-full my-16 px-3 overflow-x-hidden">
+    <section className="w-full py-20 px-3 overflow-x-hidden">
       <div className="w-full">
         <TitleSection
           handleTrendingDay={handleTrendingDay}
