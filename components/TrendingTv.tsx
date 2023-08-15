@@ -52,8 +52,8 @@ const TrendingTv = () => {
 
       <AnimationCard keyAction={currentTrending}>
         <div className="flex gap-5 w-full my-6 overflow-x-auto">
-          {trendingTv[currentTrending].slice(0, indexCard).map((item, index: number) => (
-            <Card key={index} item={item} />
+          {trendingTv[currentTrending].slice(0, indexCard).map((item) => (
+            <Card key={item.id} item={item} />
           ))}
           {indexCard < trendingTv[currentTrending].length && (
             <button className="mx-3" onClick={() => setIndexCard(indexCard + 10)}>

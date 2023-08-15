@@ -32,3 +32,11 @@ export const getUpcomingMovies = async () => {
     },
   });
 };
+
+export const getTrailerVideos = async (movie_id: number | null) => {
+  return await axios.get(`${BASE_URL}/movie/${movie_id}/videos`, {
+    params: {
+      api_key: API_KEY,
+    },
+  });
+};
