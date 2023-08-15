@@ -1,6 +1,12 @@
 import React from "react";
-import { AiFillHeart } from "react-icons/ai";
-import { FiInstagram, FiGithub, FiFacebook, FiTwitter, FiLinkedin } from "react-icons/fi";
+import {
+  AiFillHeart,
+  AiFillInstagram,
+  AiFillFacebook,
+  AiFillGithub,
+  AiFillTwitterSquare,
+  AiFillLinkedin,
+} from "react-icons/ai";
 
 const Footer = () => {
   return (
@@ -18,27 +24,27 @@ const Footer = () => {
         <ul className="flex items-center gap-3">
           <li className="text-2xl hover:text-soft-black/80">
             <a href="https://www.instagram.com/itssyahroni" target="_blank">
-              <FiInstagram />
+              <AiFillInstagram />
             </a>
           </li>
           <li className="text-2xl hover:text-soft-black/80">
             <a href="https://github.com/bwafi" target="_blank">
-              <FiGithub />
+              <AiFillGithub />
             </a>
           </li>
           <li className="text-2xl hover:text-soft-black/80">
             <a href="https://web.facebook.com/profile.php?id=100016577130120" target="_blank">
-              <FiFacebook />
+              <AiFillFacebook />
             </a>
           </li>
           <li className="text-2xl hover:text-soft-black/80">
             <a href="https://twitter.com/itssyahroni" target="_blank">
-              <FiTwitter />
+              <AiFillTwitterSquare />
             </a>
           </li>
           <li className="text-2xl hover:text-soft-black/80">
             <a href="https://www.linkedin.com/in/syahroni-bawafi-93b422265/" target="_blank">
-              <FiLinkedin />
+              <AiFillLinkedin />
             </a>
           </li>
         </ul>

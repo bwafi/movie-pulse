@@ -3,8 +3,8 @@ import { ContextApi } from "@/context/tmdbAPI";
 import React, { useState } from "react";
 import Card from "./ui/Card";
 import AnimationCard from "./ui/AnimationCard";
-import { BsArrowRightCircle } from "react-icons/bs";
 import TitleSection from "./ui/TitleSection";
+import ButtonLoadMore from "./ui/ButtonLoadMore";
 
 const TrendingTv = () => {
   const { trendingTv } = ContextApi();
@@ -21,6 +21,10 @@ const TrendingTv = () => {
     setCurrentTrending("week");
   };
 
+  const handleLoadMore = () => {
+    setIndexCard((prev) => prev + 10);
+  };
+
   return (
     <section className="w-full py-20 px-3 overflow-x-hidden">
       <div className="w-full">
@@ -34,15 +38,11 @@ const TrendingTv = () => {
       </div>
 
       <AnimationCard keyAction={currentTrending}>
-        <div className="flex gap-5 w-full my-6 overflow-x-auto">
+        <div className="flex items-center gap-5 w-full my-6 overflow-x-auto">
           {trendingTv[currentTrending].slice(0, indexCard).map((item) => (
             <Card key={item.id} item={item} />
           ))}
-          {indexCard < trendingTv[currentTrending].length && (
-            <button className="mx-3" onClick={() => setIndexCard(indexCard + 10)}>
-              <BsArrowRightCircle className="text-3xl text-teal" />
-            </button>
-          )}
+          {indexCard < trendingTv[currentTrending].length && <ButtonLoadMore handleLoadMore={handleLoadMore} />}
         </div>
       </AnimationCard>
     </section>

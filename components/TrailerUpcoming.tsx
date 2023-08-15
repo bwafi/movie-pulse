@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import CardVideo from "./ui/CardVideo";
 import { getTrailerVideos } from "@/api/apiCall";
 import EmbedVideo from "./ui/EmbedVideo";
-import { BsArrowRightCircle } from "react-icons/bs";
+import ButtonLoadMore from "./ui/ButtonLoadMore";
 
 const TrailerUpcoming = () => {
   const [movieId, setMovieId] = useState<number | null>(null);
@@ -30,6 +30,10 @@ const TrailerUpcoming = () => {
     setMovieId(null);
   };
 
+  const handleLoadMore = () => {
+    setIndexCard((prev) => prev + 10);
+  };
+
   return (
     <>
       <section className="w-full py-20">
@@ -47,11 +51,7 @@ const TrailerUpcoming = () => {
             </button>
           ))}
 
-          {indexCard < movies.upcoming.length && (
-            <button className="mx-3" onClick={() => setIndexCard(indexCard + 10)}>
-              <BsArrowRightCircle className="text-3xl text-teal" />
-            </button>
-          )}
+          {indexCard < movies.upcoming.length && <ButtonLoadMore handleLoadMore={handleLoadMore} />}
         </div>
       </section>
       <EmbedVideo handleCloseEmbed={handleCloseEmbed} movieVideoKey={movieVideoKey} embedYtb={embedYtb} />
