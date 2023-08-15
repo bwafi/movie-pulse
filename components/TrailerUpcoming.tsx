@@ -4,11 +4,13 @@ import React, { useEffect, useState } from "react";
 import CardVideo from "./ui/CardVideo";
 import { getTrailerVideos } from "@/api/apiCall";
 import EmbedVideo from "./ui/EmbedVideo";
+import { BsArrowRightCircle } from "react-icons/bs";
 
 const TrailerUpcoming = () => {
   const [movieId, setMovieId] = useState<number | null>(null);
   const [movieVideoKey, setMovieVideoKey] = useState<string>("");
   const [embedYtb, setEmbedYtb] = useState(false);
+  const [indexCard, setIndexCard] = useState(10);
   const { movies } = ContextApi();
 
   useEffect(() => {
@@ -39,11 +41,17 @@ const TrailerUpcoming = () => {
         </div>
 
         <div className="flex gap-5 py-10 overflow-x-auto">
-          {movies.upcoming.map((item) => (
+          {movies.upcoming.slice(0, indexCard).map((item) => (
             <button key={item.id} onClick={() => getMovieId(item.id)} className="min-w-fit">
               <CardVideo item={item} />
             </button>
           ))}
+
+          {indexCard < movies.upcoming.length && (
+            <button className="mx-3" onClick={() => setIndexCard(indexCard + 10)}>
+              <BsArrowRightCircle className="text-3xl text-teal" />
+            </button>
+          )}
         </div>
       </section>
       <EmbedVideo handleCloseEmbed={handleCloseEmbed} movieVideoKey={movieVideoKey} embedYtb={embedYtb} />
