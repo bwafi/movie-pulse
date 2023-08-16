@@ -3,6 +3,7 @@ import Layout from "@/components/Layout";
 import DetailContent from "@/components/detail/DetailContent";
 import HeroDetail from "@/components/detail/HeroDetail";
 import SidePoster from "@/components/detail/SidePoster";
+import TopCast from "@/components/detail/TopCast";
 import React, { useEffect } from "react";
 
 const MovieDetail = ({ params }: { params: { slug: number } }) => {
@@ -22,6 +23,7 @@ const MovieDetail = ({ params }: { params: { slug: number } }) => {
           </div>
           <div className="flex-1 grow ml-16">
             <DetailContent />
+            <TopCast />
           </div>
         </div>
       </Layout>
