@@ -10,6 +10,7 @@ import dayjs from "dayjs";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
+import Link from "next/link";
 
 const SliderHero = () => {
   const { discovers } = ContextApi();
@@ -26,7 +27,9 @@ const SliderHero = () => {
       {discovers.slice(0, 10).map((item, index: number) => (
         <SwiperSlide key={index}>
           <div className="w-full">
-            <div className="w-full h-[480px] gradient-img relative before:content-[''] before:absolute before:block before:w-full before:h-full before:bg-black/40 before:z-10 ">
+            <Link
+              href={`/movie/${item.id}`}
+              className="w-full block h-[480px] gradient-img relative before:content-[''] before:absolute before:block before:w-full before:h-full before:bg-black/40 before:z-10 ">
               <Image
                 src={`${IMAGE_URL}${item.backdrop_path}`}
                 alt="sds"
@@ -34,22 +37,24 @@ const SliderHero = () => {
                 fill
                 className="object-cover align-bottom bg-soft-black"
               />
-            </div>
+            </Link>
 
             <div className="relative h-[245px] bottom-32 left-16 z-20">
-              <div className="absolute w-[165px] h-[245px]">
+              <Link href={`/movie/${item.id}`} className="absolute block w-[165px] h-[245px]">
                 <Image
                   src={`${IMAGE_URL}${item.poster_path}`}
-                  alt="sda"
+                  alt={item.title}
                   priority
                   fill
                   className="shadow-[0px_0px_12px_3px_rgba(0,0,0,0.57)] rounded"
                 />
-              </div>
+              </Link>
               <div className="absolute w-fit top-32 left-48 before:content=[''] before:absolute before:block before:w-3 before:h-full before:bg-teal before:rounded-xs">
                 <div className="ml-6">
                   <p className="text-xs text-teal">Release : {dayjs(item.release_date).format("MMM DD, YYYY")}</p>
-                  <h1 className="text-[34px] font-semibold">{item.title}</h1>
+                  <h1 className="text-[34px] font-semibold">
+                    <Link href={`/movie/${item.id}`}>{item.title}</Link>
+                  </h1>
                   <span className="w-8 h-8 flex justify-center items-center text-xs font-semibold rounded-full border-[3px] border-teal my-1">
                     {item.vote_average}
                   </span>

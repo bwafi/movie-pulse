@@ -44,7 +44,7 @@ const TrailerUpcoming = () => {
           <p>Trailers for upcoming releases</p>
         </div>
 
-        <div className="flex gap-5 py-10 overflow-x-auto">
+        <div className="flex ml-3 gap-5 py-10 overflow-x-auto">
           {movies.upcoming.slice(0, indexCard).map((item) => (
             <button key={item.id} onClick={() => getMovieId(item.id)} className="min-w-fit">
               <CardVideo item={item} />

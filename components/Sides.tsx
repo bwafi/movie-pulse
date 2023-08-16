@@ -29,10 +29,12 @@ const navLinks = [
 
 const Sides = () => {
   return (
-    <nav className="col-start-1 col-end-3 h-screen block p-5 bg-soft-black sticky left-0 top-0 z-50">
+    <nav className="h-screen p-5 bg-soft-black ">
       <div className="w-full">
         <div className="flex items-center gap-8">
-          <h1 className="text-2xl font-semibold text-teal">MoviePulse</h1>
+          <h1 className="text-2xl font-semibold text-teal">
+            <a href="/">MoviePulse</a>
+          </h1>
           <button>
             <RiMenu3Line className="text-3xl" />
           </button>

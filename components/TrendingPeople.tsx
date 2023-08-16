@@ -5,15 +5,12 @@ import Image from "next/image";
 import { ContextApi } from "@/context/tmdbAPI";
 import { IMAGE_URL } from "@/api/apiConfig";
 import AnimationCard from "./ui/AnimationCard";
-import { BsArrowRightCircle } from "react-icons/bs";
 import ButtonLoadMore from "./ui/ButtonLoadMore";
 
 const TrendingPeople = () => {
   const { people } = ContextApi();
   const [currentTrending, setCurrentTrending] = useState<"day" | "week">("day");
   const [indexCard, setIndexCard] = useState(10);
-
-  console.log(people);
 
   const handleTrendingDay = () => {
     setIndexCard(10);
@@ -30,7 +27,7 @@ const TrendingPeople = () => {
   };
 
   return (
-    <section className="w-full px-3 my-20">
+    <section className="w-full px-3 my-32">
       <div className="w-full">
         <TitleSection
           handleTrendingDay={handleTrendingDay}

@@ -3,7 +3,6 @@ import { ContextApi } from "@/context/tmdbAPI";
 import React, { useState } from "react";
 import Card from "./ui/Card";
 import AnimationCard from "./ui/AnimationCard";
-import { BsArrowRightCircle } from "react-icons/bs";
 import TitleSection from "./ui/TitleSection";
 import ButtonLoadMore from "./ui/ButtonLoadMore";
 

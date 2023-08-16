@@ -10,12 +10,10 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="flex items-center justify-between text-soft-black px-3 w-full bg-teal py-5">
+    <footer className="flex items-center justify-between px-3 w-full bg-dark-teal py-5">
       <div className="flex items-center ">
         &copy; 2023 Created with <AiFillHeart className="text-xl mx-1 text-red-700" /> by{" "}
-        <a
-          href="https://github.com/bwafi"
-          className="ml-1 text-black hover:text-soft-black hover:border-b hover:border-b-soft-black">
+        <a href="https://github.com/bwafi" className="ml-1 hover:border-b hover:border-b-soft-black">
           Syahroni Bawafi
         </a>
       </div>

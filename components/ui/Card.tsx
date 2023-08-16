@@ -6,10 +6,10 @@ import dayjs from "dayjs";
 const Card = ({ item }: { item: any }) => {
   return (
     <div className="mb-10 min-w-[17%] min-h-[350px] rounded-md overflow-hidden bg-black shadow-md">
-      <div className="relative w-full h-4/6">
-        <Image src={`${IMAGE_URL}${item.poster_path}`} alt={item.title || item.name} fill priority />
+      <div className="relative w-full h-[280px]">
+        <Image src={`${IMAGE_URL}${item.poster_path}`} alt={item.title || item.name} fill />
       </div>
-      <div className="mx-2 my-2">
+      <div className="mx-2 my-3">
         <div className="flex items-center gap-1">
           <AiFillStar className="text-lg text-teal" />
           <p className="tracking-widest">{item.vote_average.toFixed(1)}</p>
