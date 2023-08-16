@@ -1,5 +1,6 @@
 "use client";
 import Layout from "@/components/Layout";
+import HeroDetail from "@/components/detail/HeroDetail";
 import React, { useEffect } from "react";
 
 const MovieDetail = ({ params }: { params: { slug: number } }) => {
@@ -11,7 +12,9 @@ const MovieDetail = ({ params }: { params: { slug: number } }) => {
 
   return (
     <div className="w-full mx-auto bg-green-black text-white">
-      <Layout>s</Layout>
+      <Layout>
+        <HeroDetail />
+      </Layout>
     </div>
   );
 };
