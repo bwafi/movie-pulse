@@ -18,10 +18,10 @@ const MovieDetail = ({ params }: { params: { slug: number } }) => {
       <Layout>
         <HeroDetail />
         <div className="flex relative bottom-28 mx-10">
-          <div className="w-[20%] mx-5">
+          <div className="w-[20%] mx-5 sticky top-5 z-10 max-h-[345px]">
             <SidePoster />
           </div>
-          <div className="flex-1 grow ml-16">
+          <div className="flex-1 grow ml-16 overflow-y-auto">
             <DetailContent />
             <TopCast />
           </div>
