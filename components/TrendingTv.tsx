@@ -26,7 +26,7 @@ const TrendingTv = () => {
   };
 
   return (
-    <section className="w-full py-20 px-3 overflow-x-hidden">
+    <section className="w-full py-12 px-3 overflow-x-hidden">
       <div className="w-full">
         <TitleSection
           handleTrendingDay={handleTrendingDay}

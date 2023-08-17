@@ -2,13 +2,16 @@ import Image from "next/image";
 import { AiFillStar } from "react-icons/ai";
 import { IMAGE_URL } from "@/api/apiConfig";
 import dayjs from "dayjs";
+import Link from "next/link";
 
 const Card = ({ item }: { item: any }) => {
   return (
     <div className="mb-10 min-w-[17%] min-h-[350px] rounded-md overflow-hidden bg-black shadow-md">
-      <div className="relative w-full h-[280px]">
+      <Link
+        href={`${item.media_type === "movie" ? `/movie/${item.id}` : `/tv/${item.id}`}`}
+        className="relative block w-full h-[280px]">
         <Image src={`${IMAGE_URL}${item.poster_path}`} alt={item.title || item.name} fill />
-      </div>
+      </Link>
       <div className="mx-2 my-3">
         <div className="flex items-center gap-1">
           <AiFillStar className="text-lg text-teal" />

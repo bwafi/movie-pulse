@@ -38,28 +38,36 @@ const DetailContent = ({ detailData, creditData }: DetailContentProps) => {
           <p className="text-teal font-semibold">Rating TMDB {detailData.vote_average.toFixed(1)}</p>
         </div>
 
-        <div className="w-10/12 min-h-[230px] flex items-center">
+        <div className="w-10/12 max-h-[230px] flex items-center mt-3">
           <p className="tracking-wide leading-relaxed">{detailData.overview}</p>
         </div>
 
         <div className="flex flex-col gap-2 mt-5">
           <ul className="flex">
             <li className="font-semibold mr-3">Director :</li>
-            {directors.map((member, index: number) => (
-              <li key={member.id} className="text-teal">
-                {index > 0 && ", "}
-                {member.name}
-              </li>
-            ))}
+            {directors.length > 0 ? (
+              directors.map((member, index: number) => (
+                <li key={member.id} className="text-teal">
+                  {index > 0 && ", "}
+                  {member.name}
+                </li>
+              ))
+            ) : (
+              <li className="text-teal font-semibold">-</li>
+            )}
           </ul>
           <ul className="flex">
             <li className="font-semibold mr-3">Writer :</li>
-            {writers.map((member, index: number) => (
-              <li key={member.id} className="text-teal">
-                {index > 0 && ", "}
-                {member.name}
-              </li>
-            ))}
+            {writers.length > 0 ? (
+              writers.map((member, index: number) => (
+                <li key={member.id} className="text-teal">
+                  {index > 0 && ", "}
+                  {member.name}
+                </li>
+              ))
+            ) : (
+              <li className="text-teal font-semibold">-</li>
+            )}
           </ul>
         </div>
       </div>
