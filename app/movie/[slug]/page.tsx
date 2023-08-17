@@ -1,24 +1,29 @@
 "use client";
-import { getDetail } from "@/api/apiCall";
+import { getCredits, getDetail } from "@/api/apiCall";
 import Layout from "@/components/Layout";
 import DetailContent from "@/components/detail/DetailContent";
 import HeroDetail from "@/components/detail/HeroDetail";
 import SidePoster from "@/components/detail/SidePoster";
 import TopCast from "@/components/detail/TopCast";
-import { DetailProps } from "@/libs/type";
+import { CreditsProps, DetailProps } from "@/libs/type";
 import React, { useEffect, useState } from "react";
 
 const MovieDetail = ({ params }: { params: { slug: number } }) => {
   const id = params.slug;
   const [detailData, setDetailData] = useState<DetailProps | null>(null);
+  const [creditData, setCreditData] = useState<CreditsProps | null>(null);
 
   useEffect(() => {
     getDetail("movie", id).then((res) => {
       setDetailData(res.data);
     });
+
+    getCredits("movie", id).then((res) => {
+      setCreditData(res.data);
+    });
   }, [id]);
 
-  if (!detailData) {
+  if (!detailData || !creditData) {
     return null;
   }
 
@@ -32,7 +37,7 @@ const MovieDetail = ({ params }: { params: { slug: number } }) => {
               <SidePoster title={detailData.title} tagLine={detailData.tagline} poster={detailData.poster_path} />
             </div>
             <div className="flex-1 grow ml-16 overflow-y-auto">
-              <DetailContent detailData={detailData} />
+              <DetailContent detailData={detailData} creditData={creditData} />
               <TopCast />
             </div>
           </div>

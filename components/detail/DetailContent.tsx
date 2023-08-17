@@ -1,16 +1,27 @@
-import { DetailProps } from "@/libs/type";
+import { CreditsProps, DetailProps } from "@/libs/type";
 import dayjs from "dayjs";
 import React from "react";
 import { FaPlay } from "react-icons/fa";
 import duration from "dayjs/plugin/duration";
 dayjs.extend(duration);
 
-const DetailContent = ({ detailData }: { detailData: DetailProps }) => {
+interface DetailContentProps {
+  detailData: DetailProps;
+  creditData: CreditsProps;
+}
+
+const DetailContent = ({ detailData, creditData }: DetailContentProps) => {
   const genreNames = detailData.genres.map((genre) => genre.name).join(", ");
 
   const runtime = dayjs.duration(detailData.runtime, "minutes");
   const hours = runtime.hours();
   const minutes = runtime.minutes();
+
+  console.log(creditData);
+
+  const director = creditData.crew && creditData.crew.filter((member) => member.job === "Director");
+
+  console.log(director);
 
   return (
     <div className="w-full">

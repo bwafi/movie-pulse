@@ -56,3 +56,11 @@ export const getDetail = async (type: string, id: number) => {
     },
   });
 };
+
+export const getCredits = async (type: string, id: number) => {
+  return await axios.get(`${BASE_URL}/${type}/${id}/credits`, {
+    params: {
+      api_key: API_KEY,
+    },
+  });
+};
