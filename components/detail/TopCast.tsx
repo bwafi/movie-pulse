@@ -8,7 +8,7 @@ const TopCast = () => {
         <h1 className="ml-3 text-2xl font-semibold ">Top Cast</h1>
       </div>
 
-      <div className="mt-10 flex gap-8 flex-wrap">
+      <div className="mt-8 flex gap-8 flex-wrap">
         <div className="w-[160px] min-h-[245px] bg-black rounded-md overflow-hidden">
           <div className="w-[160px] h-[185px] relative">
             <Image src="https://image.tmdb.org/t/p/original/hGyB38HAtu0NcQaC7ijsfcQmDoE.jpg" alt="sda" fill />

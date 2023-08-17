@@ -1,11 +1,17 @@
+import { IMAGE_URL } from "@/api/apiConfig";
 import Image from "next/image";
 import React from "react";
 
-const HeroDetail = () => {
+type HeroDetailProps = {
+  backDropImage: string;
+  title: string;
+};
+
+const HeroDetail = ({ backDropImage, title }: HeroDetailProps) => {
   return (
     <section className="w-full px-10">
       <div className="w-[1100px] min-h-[550px] mx-auto relative">
-        <Image src="https://image.tmdb.org/t/p/original/rLb2cwF3Pazuxaj0sRXQ037tGI1.jpg" alt="sda" fill />
+        <Image src={`${IMAGE_URL}${backDropImage}`} alt={title} fill />
         <div className="absolute w-full h-full detail-hero top-0 mx-auto "></div>
       </div>
     </section>
