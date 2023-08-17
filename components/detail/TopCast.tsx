@@ -1,7 +1,9 @@
+import { IMAGE_URL } from "@/api/apiConfig";
+import { CreditsProps } from "@/libs/type";
 import Image from "next/image";
 import React from "react";
 
-const TopCast = () => {
+const TopCast = ({ creditData }: { creditData: CreditsProps }) => {
   return (
     <section className="my-20">
       <div className="relative flex items-center gap-5 before:content-[''] before:absolute before:block before:w-1 before:h-3/4 before:bg-teal before:rounded-full">
@@ -9,15 +11,19 @@ const TopCast = () => {
       </div>
 
       <div className="mt-8 flex gap-8 flex-wrap">
-        <div className="w-[160px] min-h-[245px] bg-black rounded-md overflow-hidden">
-          <div className="w-[160px] h-[185px] relative">
-            <Image src="https://image.tmdb.org/t/p/original/hGyB38HAtu0NcQaC7ijsfcQmDoE.jpg" alt="sda" fill />
+        {creditData.cast.slice(0, 5).map((member) => (
+          <div
+            key={member.id}
+            className="w-[160px] min-h-[260px] bg-black rounded-md overflow-hidden border-[1px] border-teal/40 shadow-md">
+            <div className="w-[160px] h-[185px] relative">
+              <Image src={`${IMAGE_URL}${member.profile_path}`} alt={member.name} fill />
+            </div>
+            <div className="py-3 px-2">
+              <h3 className="font-semibold">{member.name}</h3>
+              <p className="text-sm">{member.character}</p>
+            </div>
           </div>
-          <div className="py-3 px-2">
-            <h3 className="font-semibold">Cillian Murphy</h3>
-            <p className="text-sm">J. Robert Oppenheimer </p>
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );

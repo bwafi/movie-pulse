@@ -38,7 +38,7 @@ const MovieDetail = ({ params }: { params: { slug: number } }) => {
             </div>
             <div className="flex-1 grow ml-16 overflow-y-auto">
               <DetailContent detailData={detailData} creditData={creditData} />
-              <TopCast />
+              <TopCast creditData={creditData} />
             </div>
           </div>
         </Layout>
