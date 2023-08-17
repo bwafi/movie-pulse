@@ -17,11 +17,8 @@ const DetailContent = ({ detailData, creditData }: DetailContentProps) => {
   const hours = runtime.hours();
   const minutes = runtime.minutes();
 
-  console.log(creditData);
-
-  const director = creditData.crew && creditData.crew.filter((member) => member.job === "Director");
-
-  console.log(director);
+  const directors = creditData.crew.filter((member) => member.job === "Director");
+  const writers = creditData.crew.filter((member) => member.job === "Writer");
 
   return (
     <div className="w-full">
@@ -46,12 +43,24 @@ const DetailContent = ({ detailData, creditData }: DetailContentProps) => {
         </div>
 
         <div className="flex flex-col gap-2 mt-5">
-          <p className="font-semibold">
-            Director : <span className="font-normal text-teal">Christopher Nolan</span>
-          </p>
-          <p className="font-semibold">
-            Writers : <span className="font-normal text-teal">Christopher Nolan</span>
-          </p>
+          <ul className="flex">
+            <li className="font-semibold mr-3">Director :</li>
+            {directors.map((member, index: number) => (
+              <li key={member.id} className="text-teal">
+                {index > 0 && ", "}
+                {member.name}
+              </li>
+            ))}
+          </ul>
+          <ul className="flex">
+            <li className="font-semibold mr-3">Writer :</li>
+            {writers.map((member, index: number) => (
+              <li key={member.id} className="text-teal">
+                {index > 0 && ", "}
+                {member.name}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>
