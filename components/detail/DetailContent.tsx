@@ -16,12 +16,21 @@ const DetailContent = ({ detailMovieData, detailTvData, creditData }: DetailCont
     ? detailMovieData?.genres.map((genre) => genre.name).join(", ")
     : detailTvData?.genres.map((genre) => genre.name).join(", ");
 
-  const runtime = dayjs.duration(detailMovieData?.runtime, "minutes");
-  const hours = runtime.hours();
-  const minutes = runtime.minutes();
+  let hours = 0;
+  let minutes = 0;
 
-  const directors = creditData.crew.filter((member) => member.job === "Director");
-  const writers = creditData.crew.filter((member) => member.job === "Writer");
+  if (detailMovieData) {
+    const runtime = dayjs.duration(detailMovieData?.runtime, "minutes");
+    hours = runtime.hours();
+    minutes = runtime.minutes();
+  }
+
+  const directors = detailMovieData
+    ? creditData.crew.filter((member) => member.job === "Director")
+    : creditData.crew.filter((member) => member.job === "Series Director");
+  const writers = detailMovieData
+    ? creditData.crew.filter((member) => member.job === "Writer")
+    : creditData.crew.filter((member) => member.job === "Comic Book");
 
   return (
     <div className="w-full">
@@ -30,7 +39,7 @@ const DetailContent = ({ detailMovieData, detailTvData, creditData }: DetailCont
         <div className="flex items-center gap-1 text-sm mt-1">
           <span>{detailMovieData && dayjs(detailMovieData.release_date).format("MMM DD, YYYY")}</span>
           <span>&bull; {genreNames}</span>
-          <span>&bull; {`${hours}h, ${minutes}m`}</span>
+          <span>&bull; {detailMovieData && `${hours}h, ${minutes}m`}</span>
         </div>
 
         <div className="mt-10 flex gap-3 items-center">
@@ -39,7 +48,7 @@ const DetailContent = ({ detailMovieData, detailTvData, creditData }: DetailCont
             Play Trailer
           </span>
           <p className="text-teal font-semibold">
-            Rating TMDB
+            Rating TMDB{" "}
             {detailMovieData ? detailMovieData.vote_average.toFixed(1) : detailTvData?.vote_average.toFixed(1)}
           </p>
         </div>
