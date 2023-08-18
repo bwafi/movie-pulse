@@ -23,7 +23,7 @@ const DetailContent = ({ detailData, creditData }: DetailContentProps) => {
   return (
     <div className="w-full">
       <div className="w-full">
-        <h2 className="text-3xl font-semibold">{detailData.title}</h2>
+        <h2 className="text-3xl font-semibold">{detailData.title || detailData.name}</h2>
         <div className="flex items-center gap-1 text-sm mt-1">
           <span>{dayjs(detailData.release_date).format("MMM DD, YYYY")}</span>
           <span>&bull; {genreNames}</span>

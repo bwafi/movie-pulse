@@ -5,12 +5,12 @@ import DetailContent from "@/components/detail/DetailContent";
 import HeroDetail from "@/components/detail/HeroDetail";
 import SidePoster from "@/components/detail/SidePoster";
 import TopCast from "@/components/detail/TopCast";
-import { CreditsProps, DetailProps } from "@/libs/type";
+import { CreditsProps, DetailMovieProps } from "@/libs/type";
 import React, { useEffect, useState } from "react";
 
 const MovieDetail = ({ params }: { params: { slug: number } }) => {
   const id = params.slug;
-  const [detailData, setDetailData] = useState<DetailProps | null>(null);
+  const [detailData, setDetailData] = useState<DetailMovieProps | null>(null);
   const [creditData, setCreditData] = useState<CreditsProps | null>(null);
 
   useEffect(() => {
