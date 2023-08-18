@@ -40,13 +40,15 @@ const SliderHero = () => {
             </Link>
 
             <div className="relative h-[245px] bottom-32 left-16 z-20">
-              <Link href={`/movie/${item.id}`} className="absolute block w-[165px] h-[245px] border border-teal/80">
+              <Link
+                href={`/movie/${item.id}`}
+                className="absolute block w-[165px] h-[245px] border border-teal/80 rounded overflow-hidden">
                 <Image
                   src={`${IMAGE_URL}${item.poster_path}`}
                   alt={item.title}
                   priority
                   fill
-                  className="shadow-[0px_0px_12px_3px_rgba(0,0,0,0.57)] rounded"
+                  className="shadow-[0px_0px_12px_3px_rgba(0,0,0,0.57)]"
                 />
               </Link>
               <div className="absolute w-fit top-32 left-48 before:content=[''] before:absolute before:block before:w-3 before:h-full before:bg-teal before:rounded-sm">
