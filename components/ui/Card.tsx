@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const Card = ({ item }: { item: any }) => {
   return (
-    <div className="mb-10 min-w-[17%] min-h-[350px] rounded-md overflow-hidden bg-black shadow-md">
+    <div className="mb-10 min-w-[17%] min-h-[350px] rounded-md overflow-hidden bg-black shadow-md border border-teal/30">
       <Link
         href={`${item.media_type === "movie" ? `/movie/${item.id}` : `/tv/${item.id}`}`}
         className="relative block w-full h-[280px]">

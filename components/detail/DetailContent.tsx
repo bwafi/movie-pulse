@@ -49,7 +49,7 @@ const DetailContent = ({ detailMovieData, detailTvData, creditData, setEmbedYtb 
           <button
             onClick={() => setEmbedYtb(true)}
             className="flex items-center gap-2 font-semibold hover:text-grey/80 border border-teal/50 py-1 px-3 rounded-full">
-            <FaPlay className="text-lg" />
+            <FaPlay className="text-lg text-teal" />
             Play Trailer
           </button>
           <p className="text-teal font-semibold">
@@ -79,7 +79,7 @@ const DetailContent = ({ detailMovieData, detailTvData, creditData, setEmbedYtb 
             )}
           </ul>
           <ul className="flex">
-            <li className="text-white font-semibold mr-3">Writer :</li>
+            <li className="font-semibold mr-3">Writer :</li>
             {writers.length > 0 ? (
               writers.map((member, index: number) => (
                 <li key={member.id} className="text-teal">

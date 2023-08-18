@@ -14,7 +14,7 @@ const TopCast = ({ creditData }: { creditData: CreditsProps }) => {
         {creditData.cast.slice(0, 5).map((member) => (
           <div
             key={member.id}
-            className="w-[160px] min-h-[260px] bg-black rounded-md overflow-hidden border-[1px] border-teal/40 shadow-md">
+            className="w-[160px] min-h-[260px] bg-black rounded-md overflow-hidden border border-teal/30 shadow-md">
             <div className="w-[160px] h-[185px] relative">
               <Image src={`${IMAGE_URL}${member.profile_path}`} alt={member.name} fill />
             </div>

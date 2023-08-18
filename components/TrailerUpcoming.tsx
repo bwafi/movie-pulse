@@ -5,10 +5,12 @@ import CardVideo from "./ui/CardVideo";
 import { getTrailerVideos } from "@/api/apiCall";
 import EmbedVideo from "./ui/EmbedVideo";
 import ButtonLoadMore from "./ui/ButtonLoadMore";
+import { VideoProps } from "@/libs/type";
 
 const TrailerUpcoming = () => {
   const [movieId, setMovieId] = useState<number | null>(null);
-  const [movieVideoKey, setMovieVideoKey] = useState<string>("");
+  const [videoData, setVideoData] = useState<VideoProps[]>([]);
+
   const [embedYtb, setEmbedYtb] = useState(false);
   const [indexCard, setIndexCard] = useState(10);
   const { movies } = ContextApi();
@@ -16,9 +18,12 @@ const TrailerUpcoming = () => {
   useEffect(() => {
     if (movieId)
       getTrailerVideos("movie", movieId).then((res) => {
-        setMovieVideoKey(res.data.results[0].key);
+        setVideoData(res.data.results);
       });
   }, [movieId]);
+
+  const movieVideoKey = videoData.filter((item) => item.type === "Trailer");
+  console.log(movieVideoKey);
 
   const getMovieId = (id: number | null) => {
     setEmbedYtb(true);
@@ -54,7 +59,7 @@ const TrailerUpcoming = () => {
           {indexCard < movies.upcoming.length && <ButtonLoadMore handleLoadMore={handleLoadMore} />}
         </div>
       </section>
-      <EmbedVideo handleCloseEmbed={handleCloseEmbed} movieVideoKey={movieVideoKey} embedYtb={embedYtb} />
+      <EmbedVideo handleCloseEmbed={handleCloseEmbed} movieVideoKey={movieVideoKey[0]?.key} embedYtb={embedYtb} />
     </>
   );
 };
