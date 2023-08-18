@@ -7,7 +7,7 @@ const TopCast = ({ creditData }: { creditData: CreditsProps }) => {
   return (
     <section className="my-20">
       <div className="relative flex items-center gap-5 before:content-[''] before:absolute before:block before:w-1 before:h-3/4 before:bg-teal before:rounded-full">
-        <h1 className="ml-3 text-2xl font-semibold ">Top Cast</h1>
+        <h1 className="ml-3 text-2xl text-white font-semibold ">Top Cast</h1>
       </div>
 
       <div className="mt-8 flex gap-8 flex-wrap">
@@ -19,7 +19,7 @@ const TopCast = ({ creditData }: { creditData: CreditsProps }) => {
               <Image src={`${IMAGE_URL}${member.profile_path}`} alt={member.name} fill />
             </div>
             <div className="py-3 px-2">
-              <h3 className="font-semibold">{member.name}</h3>
+              <h3 className="font-semibold text-white">{member.name}</h3>
               <p className="text-sm">{member.character}</p>
             </div>
           </div>

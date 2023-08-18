@@ -27,7 +27,7 @@ const MovieDetail = ({ params }: { params: { slug: number } }) => {
       setCreditData(res.data);
     });
 
-    getTrailerVideos(id).then((res) => {
+    getTrailerVideos("movie", id).then((res) => {
       setVideoData(res.data.results.filter((item: VideoProps) => item.type === "Trailer")); // filter video on type "Trailer"
     });
   }, [id]);

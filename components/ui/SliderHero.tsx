@@ -49,10 +49,10 @@ const SliderHero = () => {
                   className="shadow-[0px_0px_12px_3px_rgba(0,0,0,0.57)] rounded"
                 />
               </Link>
-              <div className="absolute w-fit top-32 left-48 before:content=[''] before:absolute before:block before:w-3 before:h-full before:bg-teal before:rounded-xs">
+              <div className="absolute w-fit top-32 left-48 before:content=[''] before:absolute before:block before:w-3 before:h-full before:bg-teal before:rounded-sm">
                 <div className="ml-6">
                   <p className="text-xs text-teal">Release : {dayjs(item.release_date).format("MMM DD, YYYY")}</p>
-                  <h1 className="text-[34px] font-semibold">
+                  <h1 className="text-[34px] font-semibold text-white">
                     <Link href={`/movie/${item.id}`}>{item.title}</Link>
                   </h1>
                   <span className="w-8 h-8 flex justify-center items-center text-xs font-semibold rounded-full border-[3px] border-teal my-1">

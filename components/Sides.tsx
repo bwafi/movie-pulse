@@ -29,7 +29,7 @@ const navLinks = [
 
 const Sides = () => {
   return (
-    <nav className="h-screen p-5 bg-soft-black ">
+    <nav className="h-screen p-5 bg-soft-black text-white">
       <div className="w-full">
         <div className="flex items-center gap-8">
           <h1 className="text-2xl font-semibold text-teal">

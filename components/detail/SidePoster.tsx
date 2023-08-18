@@ -16,7 +16,7 @@ const SidePoster: FC<SidePosterProps> = ({ poster, title, tagLine }) => {
       </div>
 
       <div className="text-center py-3 px-0.5">
-        <div className="text-lg font-semibold">{title}</div>
+        <div className="text-lg font-semibold text-white">{title}</div>
         <i className="mt-1 block">"{tagLine}"</i>
       </div>
     </div>

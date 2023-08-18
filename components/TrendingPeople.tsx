@@ -51,7 +51,7 @@ const TrendingPeople = () => {
                   className="rounded-full"
                 />
               </div>
-              <h2 className="mt-1 text-lg text-center font-semibold ">{item.name}</h2>
+              <h2 className="mt-1 text-lg text-center text-white font-semibold ">{item.name}</h2>
             </div>
           ))}
           {indexCard < people.trending[currentTrending].length && <ButtonLoadMore handleLoadMore={handleLoadMore} />}

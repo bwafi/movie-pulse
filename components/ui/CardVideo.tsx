@@ -22,7 +22,7 @@ const CardVideo = ({ item }: { item: ApiPorps }) => {
       </div>
       <div className="w-full mx-auto text-center my-3 tracking-wide">
         <div className="h-10 flex items-center justify-center">
-          <h2 className="mt-1 text-xl text-center font-semibold line-clamp-2">{item.title}</h2>
+          <h2 className="mt-1 text-xl text-center text-white font-semibold line-clamp-2">{item.title}</h2>
         </div>
         <p className="text-sm mt-3">{item.release_date}</p>
       </div>

@@ -36,7 +36,9 @@ const DetailContent = ({ detailMovieData, detailTvData, creditData, setEmbedYtb 
   return (
     <div className="w-full">
       <div className="w-full">
-        <h2 className="text-3xl font-semibold">{detailMovieData ? detailMovieData.title : detailTvData?.name}</h2>
+        <h2 className="text-3xl text-white font-semibold">
+          {detailMovieData ? detailMovieData.title : detailTvData?.name}
+        </h2>
         <div className="flex items-center gap-1 text-sm mt-1">
           <span>{detailMovieData && dayjs(detailMovieData.release_date).format("MMM DD, YYYY")}</span>
           <span>&bull; {genreNames}</span>
@@ -46,8 +48,8 @@ const DetailContent = ({ detailMovieData, detailTvData, creditData, setEmbedYtb 
         <div className="mt-10 flex gap-3 items-center">
           <button
             onClick={() => setEmbedYtb(true)}
-            className="flex items-center gap-2 font-semibold hover:text-grey/80 border border-teal/50 py-1 px-2 rounded-full">
-            <FaPlay className="text-xl" />
+            className="flex items-center gap-2 font-semibold hover:text-grey/80 border border-teal/50 py-1 px-3 rounded-full">
+            <FaPlay className="text-lg" />
             Play Trailer
           </button>
           <p className="text-teal font-semibold">
@@ -64,7 +66,7 @@ const DetailContent = ({ detailMovieData, detailTvData, creditData, setEmbedYtb 
 
         <div className="flex flex-col gap-2 mt-5">
           <ul className="flex">
-            <li className="font-semibold mr-3">Director :</li>
+            <li className="text-white font-semibold mr-3">Director :</li>
             {directors.length > 0 ? (
               directors.map((member, index: number) => (
                 <li key={member.id} className="text-teal">
@@ -77,7 +79,7 @@ const DetailContent = ({ detailMovieData, detailTvData, creditData, setEmbedYtb 
             )}
           </ul>
           <ul className="flex">
-            <li className="font-semibold mr-3">Writer :</li>
+            <li className="text-white font-semibold mr-3">Writer :</li>
             {writers.length > 0 ? (
               writers.map((member, index: number) => (
                 <li key={member.id} className="text-teal">
