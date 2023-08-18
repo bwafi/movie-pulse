@@ -1,17 +1,22 @@
 "use client";
-import { getCredits, getDetail } from "@/api/apiCall";
+import { getCredits, getDetail, getTrailerVideos } from "@/api/apiCall";
 import Layout from "@/components/Layout";
 import DetailContent from "@/components/detail/DetailContent";
 import HeroDetail from "@/components/detail/HeroDetail";
 import SidePoster from "@/components/detail/SidePoster";
 import TopCast from "@/components/detail/TopCast";
-import { CreditsProps, DetailMovieProps } from "@/libs/type";
+import EmbedVideo from "@/components/ui/EmbedVideo";
+import { CreditsProps, DetailMovieProps, VideoProps } from "@/libs/type";
 import React, { useEffect, useState } from "react";
 
 const MovieDetail = ({ params }: { params: { slug: number } }) => {
   const id = params.slug;
+
   const [detailMovieData, setDetailMovieData] = useState<DetailMovieProps | null>(null);
   const [creditData, setCreditData] = useState<CreditsProps | null>(null);
+  const [videoData, setVideoData] = useState<VideoProps[]>([]);
+
+  const [embedYtb, setEmbedYtb] = useState(false);
 
   useEffect(() => {
     getDetail("movie", id).then((res) => {
@@ -21,7 +26,16 @@ const MovieDetail = ({ params }: { params: { slug: number } }) => {
     getCredits("movie", id).then((res) => {
       setCreditData(res.data);
     });
+
+    getTrailerVideos(id).then((res) => {
+      setVideoData(res.data.results.filter((item: VideoProps) => item.type === "Trailer")); // filter video on type "Trailer"
+    });
   }, [id]);
+
+  // handle embed video
+  const handleCloseEmbed = () => {
+    setEmbedYtb(false);
+  };
 
   if (!detailMovieData || !creditData) {
     return null;
@@ -29,7 +43,7 @@ const MovieDetail = ({ params }: { params: { slug: number } }) => {
 
   return (
     <>
-      <div className="w-full mx-auto bg-green-black text-white">
+      <div className="w-full mx-auto bg-green-black text-grey">
         <Layout>
           <HeroDetail backDropImage={detailMovieData.backdrop_path} title={detailMovieData.title} />
           <div className="flex relative bottom-28 mx-10">
@@ -41,11 +55,12 @@ const MovieDetail = ({ params }: { params: { slug: number } }) => {
               />
             </div>
             <div className="flex-1 grow ml-16 overflow-y-auto">
-              <DetailContent detailMovieData={detailMovieData} creditData={creditData} />
+              <DetailContent detailMovieData={detailMovieData} creditData={creditData} setEmbedYtb={setEmbedYtb} />
               <TopCast creditData={creditData} />
             </div>
           </div>
         </Layout>
+        <EmbedVideo handleCloseEmbed={handleCloseEmbed} embedYtb={embedYtb} movieVideoKey={videoData[0]?.key} />
       </div>
     </>
   );

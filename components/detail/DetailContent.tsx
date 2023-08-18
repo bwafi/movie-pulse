@@ -1,17 +1,18 @@
 import { CreditsProps, DetailMovieProps, DetailTvProps } from "@/libs/type";
 import dayjs from "dayjs";
-import React from "react";
-import { FaPlay } from "react-icons/fa";
 import duration from "dayjs/plugin/duration";
+import React, { Dispatch, SetStateAction } from "react";
+import { FaPlay } from "react-icons/fa";
 dayjs.extend(duration);
 
 interface DetailContentProps {
   detailMovieData?: DetailMovieProps;
   detailTvData?: DetailTvProps;
   creditData: CreditsProps;
+  setEmbedYtb: Dispatch<SetStateAction<boolean>>;
 }
 
-const DetailContent = ({ detailMovieData, detailTvData, creditData }: DetailContentProps) => {
+const DetailContent = ({ detailMovieData, detailTvData, creditData, setEmbedYtb }: DetailContentProps) => {
   const genreNames = detailMovieData
     ? detailMovieData?.genres.map((genre) => genre.name).join(", ")
     : detailTvData?.genres.map((genre) => genre.name).join(", ");
@@ -43,10 +44,12 @@ const DetailContent = ({ detailMovieData, detailTvData, creditData }: DetailCont
         </div>
 
         <div className="mt-10 flex gap-3 items-center">
-          <span className="flex gap-2 font-semibold">
+          <button
+            onClick={() => setEmbedYtb(true)}
+            className="flex items-center gap-2 font-semibold hover:text-grey/80 border border-teal/50 py-1 px-2 rounded-full">
             <FaPlay className="text-xl" />
             Play Trailer
-          </span>
+          </button>
           <p className="text-teal font-semibold">
             Rating TMDB{" "}
             {detailMovieData ? detailMovieData.vote_average.toFixed(1) : detailTvData?.vote_average.toFixed(1)}
