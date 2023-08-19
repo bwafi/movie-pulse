@@ -59,7 +59,7 @@ const DetailContent = ({ detailMovieData, detailTvData, creditData, setEmbedYtb 
         </div>
 
         <div className="w-10/12 max-h-[230px] flex items-center mt-3">
-          <p className="tracking-wide leading-relaxed">
+          <p className="tracking-wide leading-[22px]">
             {detailMovieData ? detailMovieData.overview : detailTvData?.overview}
           </p>
         </div>

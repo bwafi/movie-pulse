@@ -43,13 +43,7 @@ const TrendingPeople = () => {
           {people.trending[currentTrending].slice(0, indexCard).map((item) => (
             <div key={item.id} className="w-60 mb-10">
               <div className="w-60 h-60 relative">
-                <Image
-                  src={`${IMAGE_URL}${item.profile_path}`}
-                  alt="asd"
-                  fill
-                  objectFit="cover"
-                  className="rounded-full"
-                />
+                <Image src={`${IMAGE_URL}${item.profile_path}`} alt="asd" fill className="rounded-full object-cover" />
               </div>
               <h2 className="mt-1 text-lg text-center text-white font-semibold ">{item.name}</h2>
             </div>
