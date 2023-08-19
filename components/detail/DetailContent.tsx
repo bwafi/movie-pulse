@@ -79,7 +79,7 @@ const DetailContent = ({ detailMovieData, detailTvData, creditData, setEmbedYtb 
             )}
           </ul>
           <ul className="flex">
-            <li className="font-semibold mr-3">Writer :</li>
+            <li className="text-white font-semibold mr-3">Writer :</li>
             {writers.length > 0 ? (
               writers.map((member, index: number) => (
                 <li key={member.id} className="text-teal">

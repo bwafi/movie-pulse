@@ -9,7 +9,7 @@ import EmbedVideo from "@/components/ui/EmbedVideo";
 import { CreditsProps, DetailTvProps, VideoProps } from "@/libs/type";
 import React, { useEffect, useState } from "react";
 
-const MovieDetail = ({ params }: { params: { slug: number } }) => {
+const TvDetail = ({ params }: { params: { slug: number } }) => {
   const id = params.slug;
   const [detailTvData, setDetailTvData] = useState<DetailTvProps | null>(null);
   const [creditData, setCreditData] = useState<CreditsProps | null>(null);
@@ -41,24 +41,22 @@ const MovieDetail = ({ params }: { params: { slug: number } }) => {
   }
 
   return (
-    <>
-      <div className="w-full mx-auto bg-green-black text-grey">
-        <Layout>
-          <HeroDetail backDropImage={detailTvData.backdrop_path} title={detailTvData.name} />
-          <div className="flex relative bottom-28 mx-10">
-            <div className="w-[22%] mx-5 sticky top-5 z-10 max-h-[345px]">
-              <SidePoster title={detailTvData.name} tagLine={detailTvData.tagline} poster={detailTvData.poster_path} />
-            </div>
-            <div className="flex-1 grow ml-16 overflow-y-auto">
-              <DetailContent detailTvData={detailTvData} creditData={creditData} setEmbedYtb={setEmbedYtb} />
-              <TopCast creditData={creditData} />
-            </div>
+    <div className="w-full mx-auto bg-green-black text-grey">
+      <Layout>
+        <HeroDetail backDropImage={detailTvData.backdrop_path} title={detailTvData.name} />
+        <div className="flex relative bottom-28 mx-10">
+          <div className="w-[22%] mx-5 sticky top-5 z-10 max-h-[345px]">
+            <SidePoster title={detailTvData.name} tagLine={detailTvData.tagline} poster={detailTvData.poster_path} />
           </div>
-        </Layout>
-        <EmbedVideo handleCloseEmbed={handleCloseEmbed} embedYtb={embedYtb} movieVideoKey={videoData[0]?.key} />
-      </div>
-    </>
+          <div className="flex-1 grow ml-16 overflow-y-auto">
+            <DetailContent detailTvData={detailTvData} creditData={creditData} setEmbedYtb={setEmbedYtb} />
+            <TopCast creditData={creditData} />
+          </div>
+        </div>
+      </Layout>
+      <EmbedVideo handleCloseEmbed={handleCloseEmbed} embedYtb={embedYtb} movieVideoKey={videoData[0]?.key} />
+    </div>
   );
 };
 
-export default MovieDetail;
+export default TvDetail;
