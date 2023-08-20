@@ -4,6 +4,20 @@ import Image from "next/image";
 import React from "react";
 
 const SideDetailPerson = ({ detailPersonData }: { detailPersonData: DetailPersonProps | null }) => {
+  const genderVonverter = (gender?: number) => {
+    switch (gender) {
+      case 0:
+        return "Not set / not specified";
+      case 1:
+        return "Female";
+      case 2:
+        return "Male";
+
+      default:
+        return "Non-binary";
+    }
+  };
+
   return (
     <div className="w-full mx-auto">
       <div className="relative w-full h-[390px] rounded-md overflow-hidden">
@@ -19,7 +33,7 @@ const SideDetailPerson = ({ detailPersonData }: { detailPersonData: DetailPerson
           </div>
           <div>
             <h2 className="font-semibold text-white">Gender</h2>
-            <span>{detailPersonData?.gender}</span>
+            <span>{genderVonverter(detailPersonData?.gender)}</span>
           </div>
           <div>
             <h2 className="font-semibold text-white">Birthday</h2>
