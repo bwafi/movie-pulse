@@ -49,6 +49,14 @@ export const getTrendingPeople = async (timeTrending: string) => {
   });
 };
 
+export const getDetailPerson = async (id: number) => {
+  return await axios.get(`${BASE_URL}/person/${id}`, {
+    params: {
+      api_key: API_KEY,
+    },
+  });
+};
+
 export const getDetail = async (type: string, id: number) => {
   return await axios.get(`${BASE_URL}/${type}/${id}`, {
     params: {

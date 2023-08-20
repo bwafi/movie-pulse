@@ -1,11 +1,13 @@
+import { IMAGE_URL } from "@/api/apiConfig";
+import { DetailPersonProps } from "@/libs/type";
 import Image from "next/image";
 import React from "react";
 
-const SideDetailPerson = () => {
+const SideDetailPerson = ({ detailPersonData }: { detailPersonData: DetailPersonProps | null }) => {
   return (
     <div className="w-full mx-auto">
-      <div className="relative w-full h-[360px] rounded-md overflow-hidden">
-        <Image src={"https://image.tmdb.org/t/p/original/whNwkEQYWLFJA8ij0WyOOAD5xhQ.jpg"} alt="asda" fill />
+      <div className="relative w-full h-[390px] rounded-md overflow-hidden">
+        <Image src={`${IMAGE_URL}${detailPersonData?.profile_path}`} alt="asda" fill />
       </div>
 
       <div className="my-8">
@@ -13,19 +15,19 @@ const SideDetailPerson = () => {
         <section className="mt-5 flex flex-col gap-8">
           <div>
             <h2 className="font-semibold text-white">Known For</h2>
-            <span>Directing</span>
+            <span>{detailPersonData?.known_for_department}</span>
           </div>
           <div>
             <h2 className="font-semibold text-white">Gender</h2>
-            <span>Male</span>
+            <span>{detailPersonData?.gender}</span>
           </div>
           <div>
             <h2 className="font-semibold text-white">Birthday</h2>
-            <span>1970-07-30 (53 years old)</span>
+            <span>{detailPersonData?.birthday}</span>
           </div>
           <div>
             <h2 className="font-semibold text-white">Place of Birth</h2>
-            <span>Westminster, London, England, UK</span>
+            <span>{detailPersonData?.place_of_birth}</span>
           </div>
         </section>
       </div>

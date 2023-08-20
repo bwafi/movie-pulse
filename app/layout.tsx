@@ -1,10 +1,10 @@
 import { GlobalProvider } from "@/context/tmdbAPI";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Roboto } from "next/font/google";
 
-const inter = Inter({
-  weight: ["300", "400", "600", "700"],
+const roboto = Roboto({
+  weight: ["300", "400", "500", "700", "900"],
   subsets: ["latin"],
 });
 
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={inter.className}>
+      <body className={roboto.className}>
         <GlobalProvider>{children}</GlobalProvider>
       </body>
     </html>

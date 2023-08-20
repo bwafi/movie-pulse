@@ -1,7 +1,6 @@
-import { IMAGE_URL } from "@/api/apiConfig";
 import { CreditsProps } from "@/libs/type";
-import Image from "next/image";
 import React from "react";
+import CardMini from "../ui/CardMini";
 
 const TopCast = ({ creditData }: { creditData: CreditsProps }) => {
   return (
@@ -12,17 +11,13 @@ const TopCast = ({ creditData }: { creditData: CreditsProps }) => {
 
       <div className="mt-8 flex gap-8 flex-wrap">
         {creditData.cast.slice(0, 5).map((member) => (
-          <div
+          <CardMini
             key={member.id}
-            className="w-[160px] min-h-[260px] bg-black rounded-md overflow-hidden border border-teal/30 shadow-md">
-            <div className="w-[160px] h-[185px] relative">
-              <Image src={`${IMAGE_URL}${member.profile_path}`} alt={member.name} fill />
-            </div>
-            <div className="py-3 px-2">
-              <h3 className="font-semibold text-white">{member.name}</h3>
-              <p className="text-sm">{member.character}</p>
-            </div>
-          </div>
+            id={member.id}
+            profile={member.profile_path}
+            name={member.name}
+            character={member.character}
+          />
         ))}
       </div>
     </section>

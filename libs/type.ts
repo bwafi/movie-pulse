@@ -196,13 +196,30 @@ export interface DetailTvProps {
   vote_count: number;
 }
 
+export interface DetailPersonProps {
+  adult: boolean;
+  also_known_as: string[];
+  biography: string;
+  birthday: string;
+  deathday: string | null;
+  gender: number;
+  homepage: string | null;
+  id: number;
+  imdb_id: string;
+  known_for_department: string;
+  name: string;
+  place_of_birth: string;
+  popularity: number;
+  profile_path: string;
+}
+
 export interface CreditsProps {
   id: number;
   cast: Array<{
     adult: boolean;
     gender: number;
     id: number;
-    known_for_departement: string;
+    known_for_department: string;
     name: string;
     original_name: string;
     popularity: number;
@@ -216,7 +233,7 @@ export interface CreditsProps {
     adult: boolean;
     gender: number;
     id: number;
-    known_for_departement: string;
+    known_for_department: string;
     name: string;
     original_name: string;
     popularity: number;
