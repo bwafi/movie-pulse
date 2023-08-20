@@ -21,7 +21,7 @@ const SideDetailPerson = ({ detailPersonData }: { detailPersonData: DetailPerson
   return (
     <div className="w-full mx-auto">
       <div className="relative w-full h-[390px] rounded-md overflow-hidden">
-        <Image src={`${IMAGE_URL}${detailPersonData?.profile_path}`} alt="asda" fill />
+        <Image src={`${IMAGE_URL}${detailPersonData?.profile_path}`} alt={`${detailPersonData?.name}`} fill />
       </div>
 
       <div className="my-8">

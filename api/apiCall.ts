@@ -72,3 +72,11 @@ export const getCredits = async (type: string, id: number) => {
     },
   });
 };
+
+export const getCombineCredits = async (id: number) => {
+  return await axios.get(`${BASE_URL}/person/${id}/combined_credits`, {
+    params: {
+      api_key: API_KEY,
+    },
+  });
+};

@@ -13,10 +13,10 @@ const TopCast = ({ creditData }: { creditData: CreditsProps }) => {
         {creditData.cast.slice(0, 5).map((member) => (
           <CardMini
             key={member.id}
-            id={member.id}
             profile={member.profile_path}
             name={member.name}
             character={member.character}
+            id={member.id}
           />
         ))}
       </div>

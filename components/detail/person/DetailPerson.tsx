@@ -12,8 +12,6 @@ const DetailPerson = ({ name, biography }: DetailPersonProps) => {
 
   const paragraphs = biography?.split("\n\n");
 
-  console.log(paragraphs && paragraphs?.length < 3);
-
   return (
     <section className="w-full">
       <h1 className="text-4xl font-bold text-white">{name}</h1>
