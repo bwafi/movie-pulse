@@ -26,7 +26,7 @@ const PersonDetail = ({ params }: { params: { slug: number } }) => {
             <SideDetailPerson detailPersonData={detailPersonData} />
           </div>
           <div className="flex-1 grow px-3">
-            <DetailPerson />
+            <DetailPerson name={detailPersonData?.name} biography={detailPersonData?.biography} />
             <KnowFor />
           </div>
         </div>
