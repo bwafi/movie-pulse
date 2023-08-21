@@ -22,11 +22,10 @@ const PersonDetail = ({ params }: { params: { slug: number } }) => {
       const sortByPopularity = res.data.cast.sort(
         (a: CastPersonProps, b: CastPersonProps) => b.popularity - a.popularity
       );
+
       setDetailCombinePerson(sortByPopularity);
     });
   }, [id]);
-
-  console.log(detailCombinePerson);
 
   return (
     <div className="w-full bg-green-black text-grey">

@@ -10,9 +10,9 @@ type SidePosterProps = {
 
 const SidePoster: FC<SidePosterProps> = ({ poster, title, tagLine }) => {
   return (
-    <div className="w-full border-[1px] border-teal/30 shadow-md rounded-md ">
+    <div className="w-full border-[1px] border-teal/30 shadow-md rounded-t-lg overflow-hidden">
       <div className="relative w-full h-[335px]">
-        <Image className="rounded-lg" src={`${IMAGE_URL}${poster}`} alt={title} fill />
+        <Image src={`${IMAGE_URL}${poster}`} alt={title} fill />
       </div>
 
       <div className="text-center py-3 px-0.5">

@@ -1,29 +1,30 @@
 import React from "react";
 import { RiMenu3Line } from "react-icons/ri";
 import Image from "next/image";
+import Link from "next/link";
 
 const navLinks = [
   {
     title: "MOVIES",
     navList: [
-      { title: "Popular", icon: "/icons/heart.svg" },
-      { title: "Now Playing", icon: "/icons/play-circle.svg" },
-      { title: "Up Coming", icon: "/icons/calendar.svg" },
-      { title: "Top Rated", icon: "/icons/award.svg" },
+      { title: "Popular", url: "/movie/popular", icon: "/icons/heart.svg" },
+      { title: "Now Playing", url: "/movie/now-playing", icon: "/icons/play-circle.svg" },
+      { title: "Up Coming", url: "/movie/up-coming", icon: "/icons/calendar.svg" },
+      { title: "Top Rated", url: "/movie/top-rated", icon: "/icons/award.svg" },
     ],
   },
   {
     title: "TV Show",
     navList: [
-      { title: "Popular", icon: "/icons/heart.svg" },
-      { title: "Airing Today", icon: "/icons/play-circle.svg" },
-      { title: "On TV", icon: "/icons/tv.svg" },
-      { title: "Top Rated", icon: "/icons/award.svg" },
+      { title: "Popular", url: "/movie/top-rated", icon: "/icons/heart.svg" },
+      { title: "Airing Today", url: "/movie/top-rated", icon: "/icons/play-circle.svg" },
+      { title: "On TV", url: "/movie/top-rated", icon: "/icons/tv.svg" },
+      { title: "Top Rated", url: "/movie/top-rated", icon: "/icons/award.svg" },
     ],
   },
   {
     title: "People",
-    navList: [{ title: "Popular", icon: "/icons/heart.svg" }],
+    navList: [{ title: "Popular", url: "/movie/top-rated", icon: "/icons/heart.svg" }],
   },
 ];
 
@@ -44,10 +45,12 @@ const Sides = () => {
             <h3 className="text-lg font-semibold mb-3">{navLink.title}</h3>
             <ul>
               {navLink.navList.map((link, index: number) => (
-                <li
-                  key={index}
-                  className="flex gap-3 py-2 text-sm hover:bg-white/10 hover:text-teal transition-colors ">
-                  <Image src={link.icon} alt="heart" width={20} height={20} /> {link.title}
+                <li key={index}>
+                  <Link
+                    href={link.url}
+                    className="flex px-2 gap-3 py-2 text-sm hover:bg-white/10 hover:text-teal transition-colors ">
+                    <Image src={link.icon} alt="heart" width={20} height={20} /> {link.title}
+                  </Link>
                 </li>
               ))}
             </ul>

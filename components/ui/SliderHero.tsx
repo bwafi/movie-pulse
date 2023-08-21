@@ -28,7 +28,7 @@ const SliderHero = () => {
         <SwiperSlide key={index}>
           <div className="w-full">
             <Link
-              href={`/movie/${item.id}`}
+              href={`/movie/detail/${item.id}`}
               className="w-full block h-[480px] gradient-img relative before:content-[''] before:absolute before:block before:w-full before:h-full before:bg-black/40 before:z-10 ">
               <Image
                 src={`${IMAGE_URL}${item.backdrop_path}`}
@@ -41,7 +41,7 @@ const SliderHero = () => {
 
             <div className="relative h-[245px] bottom-32 left-16 z-20">
               <Link
-                href={`/movie/${item.id}`}
+                href={`/movie/detail/${item.id}`}
                 className="absolute block w-[165px] h-[245px] border border-teal/80 rounded overflow-hidden">
                 <Image
                   src={`${IMAGE_URL}${item.poster_path}`}
@@ -55,7 +55,7 @@ const SliderHero = () => {
                 <div className="ml-6">
                   <p className="text-xs text-teal">Release : {dayjs(item.release_date).format("MMM DD, YYYY")}</p>
                   <h1 className="text-[34px] font-semibold text-white">
-                    <Link href={`/movie/${item.id}`}>{item.title}</Link>
+                    <Link href={`/movie/detail/${item.id}`}>{item.title}</Link>
                   </h1>
                   <span className="w-8 h-8 flex justify-center items-center text-xs font-semibold rounded-full border-[3px] border-teal my-1">
                     {item.vote_average}
