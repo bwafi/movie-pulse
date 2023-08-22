@@ -3,7 +3,7 @@ import { BsArrowRightCircle } from "react-icons/bs";
 
 const ButtonLoadMore = ({ handleLoadMore }: { handleLoadMore: () => void }) => {
   return (
-    <button className="mx-3" onClick={handleLoadMore}>
+    <button className="mx-3" onClick={handleLoadMore} title="Load More">
       <BsArrowRightCircle className="text-3xl text-teal hover:scale-110 hover:text-teal/80" />
     </button>
   );
