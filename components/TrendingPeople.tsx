@@ -43,7 +43,7 @@ const TrendingPeople = () => {
         <div className="w-full flex items-center gap-5 my-6 overflow-x-auto">
           {people.trending[currentTrending].slice(0, indexCard).map((item) => (
             <div key={item.id} className="w-60 mb-10">
-              <Link href={`/person/detail/${item.id}`} className="block w-60 h-60 relative">
+              <Link href={`/people/detail/${item.id}`} className="block w-60 h-60 relative">
                 <Image
                   src={`${IMAGE_URL}${item.profile_path}`}
                   alt={`${item.name}`}

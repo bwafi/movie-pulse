@@ -1,12 +1,6 @@
 "use client";
 import React, { useContext, createContext, ReactNode, useReducer, useEffect } from "react";
-import {
-  discoverMovies,
-  getTrendingPeople,
-  getTrendingsMovies,
-  getTrendingsTv,
-  getUpcomingMovies,
-} from "@/api/apiCall";
+import { discoverMovies, getTrendingPeople, getTrendingsMovies, getTrendingsTv } from "@/api/apiCall";
 import reducer, { initialState } from "./reducer/reducer";
 
 export const GlobalContext = createContext(initialState);

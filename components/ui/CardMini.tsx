@@ -12,8 +12,6 @@ interface CardMini {
 }
 
 const CardMini = ({ id, profile, name, title, character }: CardMini) => {
-  console.log(name);
-  console.log(title);
   return (
     <Link
       href={character ? `/person/detail/${id}` : name ? `/tv/detail/${id}` : title ? `/movie/detail/${id}` : ""}

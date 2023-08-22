@@ -28,8 +28,8 @@ export const getTrendingsTv = async (timeTrending: string) => {
   });
 };
 
-export const getListMovies = async (list: string, page: number) => {
-  return await axios.get(`${BASE_URL}/movie/${list}`, {
+export const getList = async (type: string, list: string, page: number) => {
+  return await axios.get(`${BASE_URL}/${type}/${list}`, {
     params: {
       api_key: API_KEY,
       page: page,

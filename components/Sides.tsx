@@ -16,15 +16,15 @@ const navLinks = [
   {
     title: "TV Show",
     navList: [
-      { title: "Popular", url: "/movie/top-rated", icon: "/icons/heart.svg" },
-      { title: "Airing Today", url: "/movie/top-rated", icon: "/icons/play-circle.svg" },
-      { title: "On TV", url: "/movie/top-rated", icon: "/icons/tv.svg" },
-      { title: "Top Rated", url: "/movie/top-rated", icon: "/icons/award.svg" },
+      { title: "Popular", url: "/tv/popular", icon: "/icons/heart.svg" },
+      { title: "Airing Today", url: "/tv/top-rated", icon: "/icons/play-circle.svg" },
+      { title: "On TV", url: "/tv/top-rated", icon: "/icons/tv.svg" },
+      { title: "Top Rated", url: "/tv/top-rated", icon: "/icons/award.svg" },
     ],
   },
   {
     title: "People",
-    navList: [{ title: "Popular", url: "/movie/top-rated", icon: "/icons/heart.svg" }],
+    navList: [{ title: "Popular", url: "/person/popular", icon: "/icons/heart.svg" }],
   },
 ];
 

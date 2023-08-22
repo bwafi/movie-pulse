@@ -6,12 +6,12 @@ import ListPage from "@/components/ui/ListPage";
 import { ApiPorps } from "@/libs/type";
 import React, { useEffect, useState } from "react";
 
-const PopularMovies = () => {
+const PopularTv = () => {
   const [popularData, setPopularData] = useState<ApiPorps[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
 
   useEffect(() => {
-    getList("movie", "popular", currentPage).then((res) => {
+    getList("tv", "popular", currentPage).then((res) => {
       const newData = res.data.results;
       currentPage === 1 ? setPopularData(newData) : setPopularData((prevData) => [...prevData, ...res.data.results]);
     });
@@ -33,4 +33,4 @@ const PopularMovies = () => {
   );
 };
 
-export default PopularMovies;
+export default PopularTv;
