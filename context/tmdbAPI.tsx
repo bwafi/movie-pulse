@@ -52,13 +52,6 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
       });
     });
 
-    getUpcomingMovies().then((result) => {
-      dispatch({
-        type: "GET_UPCOMING_MOVIES",
-        payload: result.data.results,
-      });
-    });
-
     getTrendingPeople("day").then((result) => {
       dispatch({
         type: "GET_TRENDING_PEOPLE_DAY",

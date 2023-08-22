@@ -1,21 +1,24 @@
 "use client";
-import { ContextApi } from "@/context/tmdbAPI";
 import React, { useEffect, useState } from "react";
 import CardVideo from "./ui/CardVideo";
-import { getTrailerVideos } from "@/api/apiCall";
+import { getListMovies, getTrailerVideos } from "@/api/apiCall";
 import EmbedVideo from "./ui/EmbedVideo";
 import ButtonLoadMore from "./ui/ButtonLoadMore";
-import { VideoProps } from "@/libs/type";
+import { ApiPorps, VideoProps } from "@/libs/type";
 
 const TrailerUpcoming = () => {
   const [movieId, setMovieId] = useState<number | null>(null);
   const [videoData, setVideoData] = useState<VideoProps[]>([]);
+  const [upcomingData, setUpcomingData] = useState<ApiPorps[]>([]);
 
   const [embedYtb, setEmbedYtb] = useState(false);
   const [indexCard, setIndexCard] = useState(10);
-  const { movies } = ContextApi();
 
   useEffect(() => {
+    getListMovies("upcoming").then((res) => {
+      setUpcomingData(res.data.results);
+    });
+
     if (movieId)
       getTrailerVideos("movie", movieId).then((res) => {
         setVideoData(res.data.results);
@@ -23,7 +26,6 @@ const TrailerUpcoming = () => {
   }, [movieId]);
 
   const movieVideoKey = videoData.filter((item) => item.type === "Trailer");
-  console.log(movieVideoKey);
 
   const getMovieId = (id: number | null) => {
     setEmbedYtb(true);
@@ -49,13 +51,13 @@ const TrailerUpcoming = () => {
         </div>
 
         <div className="flex ml-3 gap-5 py-10 overflow-x-auto">
-          {movies.upcoming.slice(0, indexCard).map((item) => (
+          {upcomingData.slice(0, indexCard).map((item) => (
             <button key={item.id} onClick={() => getMovieId(item.id)} className="min-w-fit">
               <CardVideo item={item} />
             </button>
           ))}
 
-          {indexCard < movies.upcoming.length && <ButtonLoadMore handleLoadMore={handleLoadMore} />}
+          {indexCard < upcomingData.length && <ButtonLoadMore handleLoadMore={handleLoadMore} />}
         </div>
       </section>
       <EmbedVideo handleCloseEmbed={handleCloseEmbed} movieVideoKey={movieVideoKey[0]?.key} embedYtb={embedYtb} />

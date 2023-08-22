@@ -17,7 +17,7 @@ const Card = ({ item }: { item: any }) => {
           <AiFillStar className="text-lg text-teal" />
           <p className="tracking-widest">{item.vote_average.toFixed(1)}</p>
         </div>
-        <div className="h-[40px] flex items-center">
+        <div className="w-[180px] h-[40px] flex items-center">
           <h1 className="mt-1 text-white font-semibold line-clamp-2 leading-5">{item.title || item.name}</h1>
         </div>
         <p className="mt-3 text-sm font-light ">

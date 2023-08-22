@@ -26,7 +26,7 @@ const TrendingTv = () => {
   };
 
   return (
-    <section className="w-full py-12 px-3 overflow-x-hidden">
+    <section className="w-full py-12 px-3">
       <div className="w-full">
         <TitleSection
           handleTrendingDay={handleTrendingDay}
@@ -37,14 +37,14 @@ const TrendingTv = () => {
         />
       </div>
 
-      <AnimationCard keyAction={currentTrending}>
-        <div className="flex items-center gap-5 w-full my-6 overflow-x-auto">
-          {trendingTv[currentTrending].slice(0, indexCard).map((item) => (
-            <Card key={item.id} item={item} />
-          ))}
-          {indexCard < trendingTv[currentTrending].length && <ButtonLoadMore handleLoadMore={handleLoadMore} />}
-        </div>
-      </AnimationCard>
+      {/* <AnimationCard keyAction={currentTrending}> */}
+      <div className="flex items-center gap-5 w-full my-6 overflow-x-scroll">
+        {trendingTv[currentTrending].slice(0, indexCard).map((item) => (
+          <Card key={item.id} item={item} />
+        ))}
+        {indexCard < trendingTv[currentTrending].length && <ButtonLoadMore handleLoadMore={handleLoadMore} />}
+      </div>
+      {/* </AnimationCard> */}
     </section>
   );
 };

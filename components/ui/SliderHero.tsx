@@ -53,7 +53,7 @@ const SliderHero = () => {
               </Link>
               <div className="absolute w-fit top-32 left-48 before:content=[''] before:absolute before:block before:w-3 before:h-full before:bg-teal before:rounded-sm">
                 <div className="ml-6">
-                  <p className="text-xs text-teal">Release : {dayjs(item.release_date).format("MMM DD, YYYY")}</p>
+                  <p className="text-sm text-teal">Release : {dayjs(item.release_date).format("MMM DD, YYYY")}</p>
                   <h1 className="text-[34px] font-semibold text-white">
                     <Link href={`/movie/detail/${item.id}`}>{item.title}</Link>
                   </h1>
