@@ -25,7 +25,9 @@ const PopularMovies = () => {
       <Layout>
         <ListPage popularData={popularData} />
         <div className="flex justify-center mb-10">
-          <button onClick={handleLoadMore} className="py-2 px-5 rounded border border-teal">
+          <button
+            onClick={handleLoadMore}
+            className="py-2 px-5 hover:text-black rounded border border-teal relative z-[1] load-more overflow-hidden transition-colors">
             Load More
           </button>
         </div>
