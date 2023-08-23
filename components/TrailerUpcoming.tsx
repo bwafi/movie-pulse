@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import CardVideo from "./ui/CardVideo";
-import { getListMovies, getTrailerVideos } from "@/api/apiCall";
+import { getList, getTrailerVideos } from "@/api/apiCall";
 import EmbedVideo from "./ui/EmbedVideo";
 import ButtonLoadMore from "./ui/ButtonLoadMore";
 import { ApiPorps, VideoProps } from "@/libs/type";
@@ -15,7 +15,7 @@ const TrailerUpcoming = () => {
   const [indexCard, setIndexCard] = useState(10);
 
   useEffect(() => {
-    getListMovies("upcoming").then((res) => {
+    getList("movie", "upcoming", 1).then((res) => {
       setUpcomingData(res.data.results);
     });
 

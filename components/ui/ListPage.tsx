@@ -2,15 +2,20 @@ import React from "react";
 import Card from "./Card";
 import { ApiPorps } from "@/libs/type";
 
-const ListPage = ({ popularData }: { popularData: ApiPorps[] }) => {
+interface ListPageProps {
+  listData: ApiPorps[];
+  titlePage: string;
+}
+
+const ListPage = ({ titlePage, listData }: ListPageProps) => {
   return (
     <section className="w-full mt-10 px-5">
       <div>
-        <h1 className="text-2xl font-bold">Popular Movies</h1>
+        <h1 className="text-2xl font-bold">{titlePage}</h1>
       </div>
 
       <div className="flex flex-wrap gap-5 mt-6">
-        {popularData.map((item) => (
+        {listData.map((item) => (
           <Card key={item.id} item={item} />
         ))}
       </div>

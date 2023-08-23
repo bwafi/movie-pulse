@@ -17,6 +17,8 @@ const PopularTv = () => {
     });
   }, [currentPage]);
 
+  console.log(popularData);
+
   const handleLoadMore = () => {
     setCurrentPage((prev) => prev + 1);
   };
@@ -24,7 +26,7 @@ const PopularTv = () => {
   return (
     <div className="w-full bg-green-black text-grey">
       <Layout>
-        <ListPage popularData={popularData} />
+        <ListPage listData={popularData} titlePage="Popular Tv" />
         <div className="flex justify-center mb-10">
           <ButtonRectangle handleLoadMore={handleLoadMore} />
         </div>

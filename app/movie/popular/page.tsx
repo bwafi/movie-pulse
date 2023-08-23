@@ -24,7 +24,7 @@ const PopularMovies = () => {
   return (
     <div className="w-full bg-green-black text-grey">
       <Layout>
-        <ListPage popularData={popularData} />
+        <ListPage listData={popularData} titlePage="Popular Movies" />
         <div className="flex justify-center mb-10">
           <ButtonRectangle handleLoadMore={handleLoadMore} />
         </div>
