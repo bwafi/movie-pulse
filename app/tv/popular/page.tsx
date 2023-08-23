@@ -13,7 +13,7 @@ const PopularTv = () => {
   useEffect(() => {
     getList("tv", "popular", currentPage).then((res) => {
       const newData = res.data.results;
-      currentPage === 1 ? setPopularData(newData) : setPopularData((prevData) => [...prevData, ...res.data.results]);
+      currentPage === 1 ? setPopularData(newData) : setPopularData((prevData) => [...prevData, ...newData]);
     });
   }, [currentPage]);
 

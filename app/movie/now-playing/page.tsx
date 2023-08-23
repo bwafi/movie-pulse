@@ -13,9 +13,7 @@ const NowPlaying = () => {
   useEffect(() => {
     getList("movie", "now_playing", currentPage).then((res) => {
       const newData = res.data.results;
-      currentPage === 1
-        ? setNowPlayingData(newData)
-        : setNowPlayingData((prevData) => [...prevData, ...res.data.results]);
+      currentPage === 1 ? setNowPlayingData(newData) : setNowPlayingData((prevData) => [...prevData, ...newData]);
     });
   }, [currentPage]);
   console.log(nowPlayingData);
