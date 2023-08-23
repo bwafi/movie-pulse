@@ -1,6 +1,7 @@
 import { CreditsProps, DetailMovieProps, DetailTvProps } from "@/libs/type";
 import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
+import Link from "next/link";
 import React, { Dispatch, SetStateAction } from "react";
 import { FaPlay } from "react-icons/fa";
 dayjs.extend(duration);
@@ -48,8 +49,8 @@ const DetailContent = ({ detailMovieData, detailTvData, creditData, setEmbedYtb 
         <div className="mt-10 flex gap-3 items-center">
           <button
             onClick={() => setEmbedYtb(true)}
-            className="flex items-center gap-2 font-semibold hover:text-grey/80 border border-teal/50 py-1 px-3 rounded-full">
-            <FaPlay className="text-lg text-teal" />
+            className="flex items-center gap-2 font-semibold group hover:text-grey/80 border border-teal/50 py-1 px-3 rounded-full transition-colors duration-300">
+            <FaPlay className="text-lg text-teal group-hover:text-teal/80 transition-colors duration-300" />
             Play Trailer
           </button>
           <p className="text-teal font-semibold">
@@ -69,9 +70,13 @@ const DetailContent = ({ detailMovieData, detailTvData, creditData, setEmbedYtb 
             <li className="text-white font-semibold mr-3">Director :</li>
             {directors.length > 0 ? (
               directors.map((member, index: number) => (
-                <li key={member.id} className="text-teal">
-                  {index > 0 && ", "}
-                  {member.name}
+                <li
+                  key={member.id}
+                  className="text-teal border-b border-b-transparent hover:border-b hover:border-b-teal">
+                  <Link href={`/person/detail/${member.id}`}>
+                    {index > 0 && ", "}
+                    {member.name}
+                  </Link>
                 </li>
               ))
             ) : (
@@ -82,9 +87,13 @@ const DetailContent = ({ detailMovieData, detailTvData, creditData, setEmbedYtb 
             <li className="text-white font-semibold mr-3">Writer :</li>
             {writers.length > 0 ? (
               writers.map((member, index: number) => (
-                <li key={member.id} className="text-teal">
-                  {index > 0 && ", "}
-                  {member.name}
+                <li
+                  key={member.id}
+                  className="text-teal border-b border-b-transparent hover:border-b hover:border-b-teal">
+                  <Link href={`/person/detail/${member.id}`}>
+                    {index > 0 && ", "}
+                    {member.name}
+                  </Link>
                 </li>
               ))
             ) : (
