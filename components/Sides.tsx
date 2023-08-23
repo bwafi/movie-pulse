@@ -9,7 +9,7 @@ const navLinks = [
     navList: [
       { title: "Popular", url: "/movie/popular", icon: "/icons/heart.svg" },
       { title: "Now Playing", url: "/movie/now-playing", icon: "/icons/play-circle.svg" },
-      { title: "Up Coming", url: "/movie/up-coming", icon: "/icons/calendar.svg" },
+      { title: "Up Coming", url: "/movie/upcoming", icon: "/icons/calendar.svg" },
       { title: "Top Rated", url: "/movie/top-rated", icon: "/icons/award.svg" },
     ],
   },
