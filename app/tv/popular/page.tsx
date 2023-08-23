@@ -24,7 +24,7 @@ const PopularTv = () => {
   return (
     <div className="w-full bg-green-black text-grey">
       <Layout>
-        <ListPage listData={popularData} titlePage="Popular Tv" />
+        <ListPage listData={popularData} titlePage="Popular TV Shows" />
         <div className="flex justify-center mb-10">
           <ButtonRectangle handleLoadMore={handleLoadMore} />
         </div>
