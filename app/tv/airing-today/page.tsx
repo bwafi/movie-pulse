@@ -6,14 +6,14 @@ import ListPage from "@/components/ui/ListPage";
 import { ApiPorps } from "@/libs/type";
 import React, { useEffect, useState } from "react";
 
-const PopularTv = () => {
-  const [popularData, setPopularData] = useState<ApiPorps[]>([]);
+const AiringToday = () => {
+  const [airingData, setAiringData] = useState<ApiPorps[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
 
   useEffect(() => {
-    getList("tv", "popular", currentPage).then((res) => {
+    getList("tv", "airing_today", currentPage).then((res) => {
       const newData = res.data.results;
-      currentPage === 1 ? setPopularData(newData) : setPopularData((prevData) => [...prevData, ...newData]);
+      currentPage === 1 ? setAiringData(newData) : setAiringData((prevData) => [...prevData, ...newData]);
     });
   }, [currentPage]);
 
@@ -22,9 +22,9 @@ const PopularTv = () => {
   };
 
   return (
-    <div className="w-full bg-green-black text-grey">
+    <div>
       <Layout>
-        <ListPage listData={popularData} titlePage="Popular Tv" />
+        <ListPage titlePage="TV Show Airing Today" listData={airingData} />
         <div className="flex justify-center mb-10">
           <ButtonRectangle handleLoadMore={handleLoadMore} />
         </div>
@@ -33,4 +33,4 @@ const PopularTv = () => {
   );
 };
 
-export default PopularTv;
+export default AiringToday;
