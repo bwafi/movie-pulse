@@ -1,6 +1,7 @@
 "use client";
 import { getList } from "@/api/apiCall";
 import Layout from "@/components/Layout";
+import ButtonRectangle from "@/components/ui/ButtonRectangle";
 import ListPage from "@/components/ui/ListPage";
 import { ApiPorps } from "@/libs/type";
 import React, { useEffect, useState } from "react";
@@ -16,10 +17,17 @@ const AiringToday = () => {
     });
   }, [currentPage]);
 
+  const handleLoadMore = () => {
+    setCurrentPage((prev) => prev + 1);
+  };
+
   return (
     <div>
       <Layout>
         <ListPage titlePage="Currently Airing TV Shows" listData={onAirData} />
+        <div className="flex justify-center mb-10">
+          <ButtonRectangle handleLoadMore={handleLoadMore} />
+        </div>
       </Layout>
     </div>
   );
