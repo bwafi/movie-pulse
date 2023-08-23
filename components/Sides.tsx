@@ -18,7 +18,7 @@ const navLinks = [
     navList: [
       { title: "Popular", url: "/tv/popular", icon: "/icons/heart.svg" },
       { title: "Airing Today", url: "/tv/airing-today", icon: "/icons/play-circle.svg" },
-      { title: "On TV", url: "/tv/top-rated", icon: "/icons/tv.svg" },
+      { title: "On TV", url: "/tv/on-the-air", icon: "/icons/tv.svg" },
       { title: "Top Rated", url: "/tv/top-rated", icon: "/icons/award.svg" },
     ],
   },
