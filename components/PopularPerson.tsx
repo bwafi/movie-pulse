@@ -1,29 +1,37 @@
+import { IMAGE_URL } from "@/api/apiConfig";
+import { PopularPersonProps } from "@/libs/type";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
-const PopularPersonBody = () => {
+interface PopularPersonBodyProps {
+  listData: PopularPersonProps[];
+}
+
+const PopularPerson = ({ listData }: PopularPersonBodyProps) => {
   return (
     <div className="my-10 px-5">
       <h1 className="text-2xl font-bold">Popular People</h1>
 
-      <div className="w-full flex flex-wrap gap-5 mt-5">
-        <div className="max-w-[235px] overflow-hidden shadow-lg border border-teal/30 rounded-md">
-          <div className="relative w-[235px] h-[235px]">
-            <Image
-              src={"https://image.tmdb.org/t/p/original/2JMxcjkUc5SPrj8P9GCFQev4pbm.jpg"}
-              alt="sad"
-              fill
-              className="object-cover"
-            />
+      <div className="w-full flex flex-wrap gap-8 mt-5">
+        {listData.map((item) => (
+          <div
+            key={item.id}
+            className="max-w-[235px] overflow-hidden shadow-lg border border-teal/30 rounded-md hover:border-white/30 transition-colors duration-300">
+            <Link href={`/person/detail/${item.id}`} className="block relative w-[235px] h-[235px]">
+              <Image src={`${IMAGE_URL}${item.profile_path}`} alt={item.name} fill className="object-cover" />
+            </Link>
+            <div className="px-3 my-1">
+              <h2 className="text-lg font-semibold text-white">
+                <Link href={`/person/detail/${item.id}`}>{item.name}</Link>
+              </h2>
+              <p className="line-clamp-1 text-sm">{item.known_for.map((item) => item.name || item.title).join(", ")}</p>
+            </div>
           </div>
-          <div className="px-3 my-1">
-            <h2 className="text-lg font-semibold text-white">AJ Raval</h2>
-            <p className="line-clamp-1 text-sm">The Dark Knight, The Dark Knight Rises, Darkest Hour</p>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );
 };
 
-export default PopularPersonBody;
+export default PopularPerson;
