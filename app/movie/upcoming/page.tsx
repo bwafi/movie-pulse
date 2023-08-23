@@ -12,7 +12,8 @@ const Upcoming = () => {
 
   useEffect(() => {
     getList("movie", "upcoming", currentPage).then((res) => {
-      setUpcomingData(res.data.results);
+      const newData = res.data.results;
+      currentPage === 1 ? setUpcomingData(newData) : setUpcomingData((prevData) => [...prevData, ...newData]);
     });
   }, [currentPage]);
 
