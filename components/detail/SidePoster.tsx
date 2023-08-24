@@ -11,7 +11,7 @@ type SidePosterProps = {
 const SidePoster: FC<SidePosterProps> = ({ poster, title, tagLine }) => {
   return (
     <div className="w-full border-[1px] border-teal/30 hover:border-white/30 shadow-md rounded-lg overflow-hidden transition-colors duration-300">
-      <div className="relative w-full h-[350px] lg:h-[335px]">
+      <div className="relative w-full h-[365px] lg:h-[335px]">
         <Image src={`${IMAGE_URL}${poster}`} alt={title} fill />
       </div>
 

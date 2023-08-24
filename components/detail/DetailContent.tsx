@@ -37,10 +37,10 @@ const DetailContent = ({ detailMovieData, detailTvData, creditData, setEmbedYtb 
   return (
     <div className="w-full">
       <div className="w-full">
-        <h2 className="text-lg lg:text-3xl text-white font-semibold">
+        <h2 className="text-center lg:text-left text-2xl lg:text-3xl text-white font-semibold">
           {detailMovieData ? detailMovieData.title : detailTvData?.name}
         </h2>
-        <div className="flex items-center flex-wrap gap-1 text-sm mt-1">
+        <div className="flex items-center justify-center lg:justify-start flex-wrap gap-1 text-sm mt-1">
           <span>{detailMovieData && dayjs(detailMovieData.release_date).format("MMM DD, YYYY")}</span>
           <span>&bull; {genreNames} &bull; </span>
           <span>{detailMovieData && `${hours}h, ${minutes}m`}</span>
@@ -49,11 +49,11 @@ const DetailContent = ({ detailMovieData, detailTvData, creditData, setEmbedYtb 
         <div className="mt-10 flex gap-3 items-center">
           <button
             onClick={() => setEmbedYtb(true)}
-            className="flex items-center gap-2 font-semibold group hover:text-grey/80 border border-teal/50 py-1 px-3 rounded-full transition-colors duration-300">
-            <FaPlay className="text-lg text-teal group-hover:text-teal/80 transition-colors duration-300" />
+            className="flex text-sm lg:text-base items-center gap-2 font-semibold group hover:text-grey/80 border border-teal/50 py-1 px-3 rounded-full transition-colors duration-300">
+            <FaPlay className="text-sm lg:text-lg text-teal group-hover:text-teal/80 transition-colors duration-300" />
             Play Trailer
           </button>
-          <p className="text-teal font-semibold">
+          <p className="text-teal text-sm lg:text-base font-semibold">
             Rating TMDB{" "}
             {detailMovieData ? detailMovieData.vote_average.toFixed(1) : detailTvData?.vote_average.toFixed(1)}
           </p>

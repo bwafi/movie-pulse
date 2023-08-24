@@ -42,7 +42,7 @@ const SliderHero = () => {
             <div className="relative h-[135px] lg:h-[245px] bottom-10 lg:bottom-32 left-0 lg:left-16 z-20">
               <Link
                 href={`/movie/detail/${item.id}`}
-                className="absolute block w-[90px] lg:w-[165px] h-[135px] lg:h-[245px] border border-teal/80 rounded overflow-hidden">
+                className="absolute block w-[90px] lg:w-[165px] h-[140px] lg:h-[245px] border border-teal/80 rounded overflow-hidden">
                 <Image
                   src={`${IMAGE_URL}${item.poster_path}`}
                   alt={item.title}
