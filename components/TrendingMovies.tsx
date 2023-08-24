@@ -26,7 +26,7 @@ const TrendingMovies = () => {
   };
 
   return (
-    <section className="w-full py-12 px-3 overflow-x-hidden">
+    <section className="w-full py-10 lg:py-12 px-3 overflow-x-hidden">
       <div className="w-full">
         <TitleSection
           handleTrendingDay={handleTrendingDay}
@@ -38,7 +38,7 @@ const TrendingMovies = () => {
       </div>
 
       <AnimationCard keyAction={currentTrending}>
-        <div className="flex items-center gap-5 w-full my-6 overflow-x-auto">
+        <div className="flex items-center gap-3 lg:gap-5 w-full my-6 overflow-x-auto">
           {trendingMovies[currentTrending].slice(0, indexCard).map((item) => (
             <Card key={item.id} item={item} />
           ))}
