@@ -15,7 +15,7 @@ const CardMini = ({ id, profile, name, title, character }: CardMini) => {
   return (
     <Link
       href={character ? `/person/detail/${id}` : name ? `/tv/detail/${id}` : title ? `/movie/detail/${id}` : ""}
-      className="w-[160px] max-h-[300px] bg-black rounded-md overflow-hidden border border-teal/30 hover:border-white/30 shadow-md transition-colors duration-300">
+      className="w-[140px] lg:w-[160px] max-h-[280px] lg:max-h-[300px] bg-black rounded-md overflow-hidden border border-teal/30 hover:border-white/30 shadow-md transition-colors duration-300">
       <div className="w-[160px] h-[200px] relative">
         <Image src={`${IMAGE_URL}${profile}`} alt={`${name || title}`} fill />
       </div>

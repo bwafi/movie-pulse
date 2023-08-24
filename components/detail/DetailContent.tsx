@@ -37,13 +37,13 @@ const DetailContent = ({ detailMovieData, detailTvData, creditData, setEmbedYtb 
   return (
     <div className="w-full">
       <div className="w-full">
-        <h2 className="text-3xl text-white font-semibold">
+        <h2 className="text-lg lg:text-3xl text-white font-semibold">
           {detailMovieData ? detailMovieData.title : detailTvData?.name}
         </h2>
-        <div className="flex items-center gap-1 text-sm mt-1">
+        <div className="flex items-center flex-wrap gap-1 text-sm mt-1">
           <span>{detailMovieData && dayjs(detailMovieData.release_date).format("MMM DD, YYYY")}</span>
-          <span>&bull; {genreNames}</span>
-          <span>&bull; {detailMovieData && `${hours}h, ${minutes}m`}</span>
+          <span>&bull; {genreNames} &bull; </span>
+          <span>{detailMovieData && `${hours}h, ${minutes}m`}</span>
         </div>
 
         <div className="mt-10 flex gap-3 items-center">
@@ -59,14 +59,14 @@ const DetailContent = ({ detailMovieData, detailTvData, creditData, setEmbedYtb 
           </p>
         </div>
 
-        <div className="w-10/12 max-h-[230px] flex items-center mt-3">
-          <p className="tracking-wide leading-[22px]">
+        <div className="w-full lg:w-10/12 max-h-[230px] flex items-center mt-3">
+          <p className="text-sm lg:text-base tracking-wide leading-[22px]">
             {detailMovieData ? detailMovieData.overview : detailTvData?.overview}
           </p>
         </div>
 
-        <div className="flex flex-col gap-2 mt-5">
-          <ul className="flex">
+        <div className="flex flex-col flex-wrap gap-2 mt-5">
+          <ul className="flex text-sm lg:text-base">
             <li className="text-white font-semibold mr-3">Director :</li>
             {directors.length > 0 ? (
               directors.map((member, index: number) => (
@@ -83,7 +83,7 @@ const DetailContent = ({ detailMovieData, detailTvData, creditData, setEmbedYtb 
               <li className="text-teal font-semibold">-</li>
             )}
           </ul>
-          <ul className="flex">
+          <ul className="flex text-sm lg:text-base">
             <li className="text-white font-semibold mr-3">Writer :</li>
             {writers.length > 0 ? (
               writers.map((member, index: number) => (

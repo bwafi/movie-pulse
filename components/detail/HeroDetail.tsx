@@ -9,7 +9,7 @@ type HeroDetailProps = {
 
 const HeroDetail = ({ backDropImage, title }: HeroDetailProps) => {
   return (
-    <section className="w-full flex justify-center px-10">
+    <section className="w-full hidden lg:flex justify-center px-10">
       <div className="w-[1100px] min-h-[550px] mx-auto relative">
         <Image src={`${IMAGE_URL}${backDropImage}`} alt={title} fill />
         <div className="absolute w-full h-full detail-hero top-0 left-0 mx-auto "></div>
