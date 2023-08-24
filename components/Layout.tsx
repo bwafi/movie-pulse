@@ -10,7 +10,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
       </div>
       <div className="ml-0 lg:ml-[17%] w-full lg:w-[83%]">
         <main>{children}</main>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </div>
   );
