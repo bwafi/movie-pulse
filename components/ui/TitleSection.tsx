@@ -39,7 +39,7 @@ const TitleSection = ({
           </button>
         </div>
       </div>
-      <p className="mt-1 text-sm">{subTitle}</p>
+      <p className="mt-1 text-sm lg:text-base">{subTitle}</p>
     </>
   );
 };
