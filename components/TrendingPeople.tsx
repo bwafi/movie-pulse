@@ -28,7 +28,7 @@ const TrendingPeople = () => {
   };
 
   return (
-    <section className="w-full px-3 my-32">
+    <section className="w-full px-3 my-10 lg:my-32">
       <div className="w-full">
         <TitleSection
           handleTrendingDay={handleTrendingDay}
@@ -40,10 +40,10 @@ const TrendingPeople = () => {
       </div>
 
       <AnimationCard keyAction={currentTrending}>
-        <div className="w-full flex items-center gap-5 my-6 overflow-x-auto">
+        <div className="w-full flex items-center gap-3 lg:gap-5 my-6 overflow-x-auto">
           {people.trending[currentTrending].slice(0, indexCard).map((item) => (
-            <div key={item.id} className="w-60 mb-10">
-              <Link href={`/person/detail/${item.id}`} className="block w-60 h-60 relative">
+            <div key={item.id} className="w-fit mb-10">
+              <Link href={`/person/detail/${item.id}`} className="block w-44 lg:w-60 h-44 lg:h-60 relative">
                 <Image
                   src={`${IMAGE_URL}${item.profile_path}`}
                   alt={`${item.name}`}
@@ -51,7 +51,7 @@ const TrendingPeople = () => {
                   className="rounded-full object-cover"
                 />
               </Link>
-              <h2 className="mt-1 text-lg text-center text-white font-semibold ">{item.name}</h2>
+              <h2 className="mt-1 text-base lg:text-lg text-center text-white font-semibold ">{item.name}</h2>
             </div>
           ))}
           {indexCard < people.trending[currentTrending].length && <ButtonLoadMore handleLoadMore={handleLoadMore} />}
