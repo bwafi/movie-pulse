@@ -14,16 +14,16 @@ const DetailPerson = ({ name, biography }: DetailPersonProps) => {
 
   return (
     <section className="w-full">
-      <h1 className="text-4xl font-bold text-white">{name}</h1>
+      <h1 className="text-4xl hidden lg:block font-bold text-white">{name}</h1>
       <div className="mt-5">
-        <h2 className="font-semibold text-white text-2xl">Biography</h2>
+        <h2 className="font-semibold text-white text-xl lg:text-2xl">Biography</h2>
         <div className="relative">
           <div
             className={`relative overflow-hidden  transition-[max-height] duration-700 after:content-[''] after:block after:absolute after:w-full after:h-[24px] after:bg-gradient-to-r after:from-white/0 after:to-green-black after:bottom-0 ${
               showParagraph || (paragraphs && paragraphs.length < 3) ? "after:!h-0 max-h-[3000px]" : "max-h-[219px]"
             }`}>
             {paragraphs?.map((paragraph, index: number) => (
-              <p key={index} className="mt-3 leading-6 tracking-wide ">
+              <p key={index} className="mt-3 text-sm lg:text-base leading-6 tracking-wide ">
                 {paragraph}
               </p>
             ))}

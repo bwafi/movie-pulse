@@ -24,9 +24,11 @@ const SideDetailPerson = ({ detailPersonData }: { detailPersonData: DetailPerson
         <Image src={`${IMAGE_URL}${detailPersonData?.profile_path}`} alt={`${detailPersonData?.name}`} fill />{" "}
       </div>
 
+      <h1 className="text-3xl lg:text-4xl text-center mt-5 lg:hidden font-bold text-white">{detailPersonData?.name}</h1>
+
       <div className="my-8">
         <h2 className="font-semibold text-lg text-white">Personal Info</h2>
-        <section className="mt-5 flex flex-col gap-8">
+        <section className="mt-5 flex flex-col gap-3 lg:gap-8">
           <div>
             <h2 className="font-semibold text-white">Known For</h2>
             <span>{detailPersonData?.known_for_department}</span>

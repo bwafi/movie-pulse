@@ -9,7 +9,7 @@ const TopCast = ({ creditData }: { creditData: CreditsProps }) => {
         <h1 className="ml-3 text-xl lg:text-2xl text-white font-semibold ">Top Cast</h1>
       </div>
 
-      <div className="mt-5 lg:mt-8 flex lg:justify-start justify-center gap-3 lg:gap-8 flex-wrap">
+      <div className="mt-5 lg:mt-8 flex gap-3 lg:gap-8 flex-wrap">
         {creditData.cast.slice(0, 5).map((member) => (
           <CardMini
             key={member.id}
