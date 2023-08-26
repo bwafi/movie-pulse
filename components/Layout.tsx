@@ -12,7 +12,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
     <div className="flex relative w-full">
       <div
         className={`w-[17%] lg:translate-x-0 lg:block fixed top-0 left-0 z-40 transition-transform duration-200 ${
-          menu ? "translate-x-0 w-[210px]" : "-translate-x-56"
+          menu ? "translate-x-0 w-[210px] lg:w-[17%]" : "-translate-x-56"
         }`}>
         <Sides />
       </div>
