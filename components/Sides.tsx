@@ -1,7 +1,9 @@
+"use client";
 import React from "react";
-import { RiMenu3Line } from "react-icons/ri";
+import { IoClose } from "react-icons/io5";
 import Image from "next/image";
 import Link from "next/link";
+import { ContextApi } from "@/context/tmdbAPI";
 
 const navLinks = [
   {
@@ -29,20 +31,22 @@ const navLinks = [
 ];
 
 const Sides = () => {
+  const { handleMenu } = ContextApi();
+
   return (
-    <nav className="h-screen p-5 bg-soft-black text-white">
+    <nav className="h-screen p-3 lg:p-5 bg-soft-black text-white">
       <div className="w-full">
         <div className="flex items-center gap-8">
-          <h1 className="text-2xl font-semibold text-teal">
+          <h1 className="text-lg lg:text-2xl font-semibold text-teal">
             <a href="/">MoviePulse</a>
           </h1>
-          <button>
-            <RiMenu3Line className="text-3xl" />
+          <button onClick={handleMenu} className="block lg:hidden">
+            <IoClose className="text-2xl" />
           </button>
         </div>
         {navLinks.map((navLink, index: number) => (
           <div key={index} className="mt-8">
-            <h3 className="text-lg font-semibold mb-3">{navLink.title}</h3>
+            <h3 className="text-base lg:text-lg font-semibold mb-3">{navLink.title}</h3>
             <ul>
               {navLink.navList.map((link, index: number) => (
                 <li key={index}>

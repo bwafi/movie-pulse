@@ -20,6 +20,8 @@ export interface StateProps {
     };
     popular: ApiPorps[];
   };
+  handleMenu?: () => void;
+  menu: boolean;
   isLoading: boolean;
   isError: boolean;
 }
@@ -49,6 +51,7 @@ export const initialState: StateProps = {
     },
     popular: [],
   },
+  menu: false,
   isLoading: true,
   isError: false,
 };
@@ -127,6 +130,12 @@ const reducer = (state: StateProps, action: ActionProps) => {
             week: action.payload,
           },
         },
+      };
+
+    case "KLIK_MENU":
+      return {
+        ...state,
+        menu: action.payload,
       };
 
     default:

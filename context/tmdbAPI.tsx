@@ -61,5 +61,17 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
     });
   }, []);
 
-  return <GlobalContext.Provider value={{ ...state }}>{children}</GlobalContext.Provider>;
+  const handleMenu = () => {
+    dispatch({
+      type: "KLIK_MENU",
+      payload: !state.menu,
+    });
+  };
+
+  const value = {
+    ...state,
+    handleMenu: handleMenu,
+  };
+
+  return <GlobalContext.Provider value={value}>{children}</GlobalContext.Provider>;
 };
