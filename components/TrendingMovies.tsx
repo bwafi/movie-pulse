@@ -1,15 +1,22 @@
 "use client";
-import { ContextApi } from "@/context/tmdbAPI";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "./ui/Card";
 import AnimationCard from "./ui/AnimationCard";
 import TitleSection from "./ui/TitleSection";
 import ButtonLoadMore from "./ui/ButtonLoadMore";
+import { getTrendings } from "@/api/apiCall";
+import { ApiPorps } from "@/libs/type";
 
 const TrendingMovies = () => {
-  const { trendingMovies } = ContextApi();
+  const [trendingMoviesData, setTrendingMoviesData] = useState<ApiPorps[]>([]);
   const [currentTrending, setCurrentTrending] = useState<"day" | "week">("day");
   const [indexCard, setIndexCard] = useState(10);
+
+  useEffect(() => {
+    getTrendings("movie", currentTrending).then((res) => {
+      setTrendingMoviesData(res.data.results);
+    });
+  }, [currentTrending]);
 
   const handleTrendingDay = () => {
     setIndexCard(10);
@@ -39,10 +46,10 @@ const TrendingMovies = () => {
 
       <AnimationCard keyAction={currentTrending}>
         <div className="flex items-center gap-3 lg:gap-5 w-full my-6 overflow-x-auto">
-          {trendingMovies[currentTrending].slice(0, indexCard).map((item) => (
+          {trendingMoviesData.slice(0, indexCard).map((item) => (
             <Card key={item.id} item={item} />
           ))}
-          {indexCard < trendingMovies[currentTrending].length && <ButtonLoadMore handleLoadMore={handleLoadMore} />}
+          {indexCard < trendingMoviesData.length && <ButtonLoadMore handleLoadMore={handleLoadMore} />}
         </div>
       </AnimationCard>
     </section>

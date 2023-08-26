@@ -1,4 +1,4 @@
-import { GlobalProvider } from "@/context/tmdbAPI";
+import { GlobalProvider } from "@/context/context";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";

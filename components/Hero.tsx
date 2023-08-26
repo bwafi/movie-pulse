@@ -6,9 +6,19 @@ import Link from "next/link";
 import Image from "next/image";
 import { IMAGE_URL } from "@/api/apiConfig";
 import { DiscoverProps } from "@/libs/type";
+import { useEffect, useState } from "react";
 import "swiper/css";
+import { discoverMovies } from "@/api/apiCall";
 
-const Hero = ({ discoverData }: { discoverData: DiscoverProps[] }) => {
+const Hero = () => {
+  const [discoverData, setDiscoverData] = useState<DiscoverProps[]>([]);
+
+  useEffect(() => {
+    discoverMovies().then((res) => {
+      setDiscoverData(res.data.results);
+    });
+  }, []);
+
   return (
     <section className="w-full max-h-[630px]">
       <Swiper
