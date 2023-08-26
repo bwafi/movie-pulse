@@ -9,10 +9,10 @@ const CardMobile = ({ item }: { item: any }) => {
     <div className="flex items-center w-full min-h-[140px] rounded-md overflow-hidden bg-black shadow-md border border-teal/30 hover:border-white/30 transition-colors duration-300">
       <Link
         href={`${item.title ? `/movie/detail/${item.id}` : `/tv/detail/${item.id}`}`}
-        className="relative block w-5/12 h-full">
+        className="relative block w-4/12 sm:w-2/12 h-full">
         <Image src={`${IMAGE_URL}${item.poster_path}`} alt={item.title || item.name} fill />
       </Link>
-      <div className="mx-2 my-3 w-7/12">
+      <div className="mx-2 flex flex-col gap-3 my-3 grow flex-1">
         <div className="flex items-center gap-1">
           <AiFillStar className="text-base lg:text-lg text-teal" />
           <p className="tracking-widest text-sm lg:text-base">{item.vote_average.toFixed(1)}</p>
@@ -22,9 +22,8 @@ const CardMobile = ({ item }: { item: any }) => {
             {item.title || item.name}
           </h1>
         </div>
-        <p className="mt-1 lg:mt-3 text-sm font-light ">
-          {dayjs(item.release_date || item.first_air_date).format("MMM DD, YYYY")}
-        </p>
+        <p className="text-sm font-light ">{dayjs(item.release_date || item.first_air_date).format("MMM DD, YYYY")}</p>
+        <p className="mt-1 text-sm font-light line-clamp-2 ">{item.overview}</p>
       </div>
     </div>
   );

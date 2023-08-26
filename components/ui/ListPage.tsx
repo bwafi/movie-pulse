@@ -21,7 +21,7 @@ const ListPage = ({ titlePage, listData }: ListPageProps) => {
         ))}
       </div>
 
-      <div className="flex lg:hidden flex-wrap gap-3 lg:gap-5 mt-6">
+      <div className="flex lg:hidden flex-wrap gap-3 lg:gap-5 my-6">
         {listData.map((item) => (
           <CardMobile key={item.id} item={item} />
         ))}
