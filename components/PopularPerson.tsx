@@ -17,8 +17,10 @@ const PopularPerson = ({ listData }: PopularPersonBodyProps) => {
         {listData.map((item) => (
           <div
             key={item.id}
-            className="w-[47%] lg:max-w-[235px] overflow-hidden shadow-lg border border-teal/30 rounded-md hover:border-white/30 transition-colors duration-300">
-            <Link href={`/person/detail/${item.id}`} className="block relative w-full h-[145px] lg:h-[235px]">
+            className="w-[47%] xs:w-[30%] md:w-[23%] lg:max-w-[235px] overflow-hidden shadow-lg border border-teal/30 rounded-md hover:border-white/30 transition-colors duration-300">
+            <Link
+              href={`/person/detail/${item.id}`}
+              className="block relative w-full h-[200px] md:h-[300px] lg:h-[235px]">
               <Image
                 src={`${IMAGE_URL}${item.profile_path}`}
                 alt={item.name}

@@ -2,6 +2,7 @@
 import { getList } from "@/api/apiCall";
 import Layout from "@/components/Layout";
 import PopularPersonBody from "@/components/PopularPerson";
+import ButtonRectangle from "@/components/ui/ButtonRectangle";
 import { PopularPersonProps } from "@/libs/type";
 import React, { useEffect, useState } from "react";
 
@@ -21,10 +22,17 @@ const PopularPerson = () => {
     console.log(contoh);
   }, [popularPersonData]);
 
+  const handleLoadMore = () => {
+    setCurrentPage((prev) => prev + 1);
+  };
+
   return (
     <div>
       <Layout>
         <PopularPersonBody listData={popularPersonData} />
+        <div className="flex justify-center mb-10">
+          <ButtonRectangle handleLoadMore={handleLoadMore} />
+        </div>
       </Layout>
     </div>
   );
