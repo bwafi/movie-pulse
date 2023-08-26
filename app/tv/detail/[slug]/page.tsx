@@ -44,7 +44,7 @@ const TvDetail = ({ params }: { params: { slug: number } }) => {
     <div className="w-full mx-auto bg-green-black text-grey">
       <Layout>
         <HeroDetail backDropImage={detailTvData.backdrop_path} title={detailTvData.name} />
-        <div className="flex lg:flex-row flex-col static lg:relative bottom-28 mx-2 lg:mx-10">
+        <div className="flex lg:flex-row flex-col static mt-16 lg:relative bottom-28 mx-2 lg:mx-10">
           <div className="w-full lg:w-[22%] mx-0 lg:mx-5 static lg:sticky top-5 z-10 max-h-[345px]">
             <SidePoster title={detailTvData.name} tagLine={detailTvData.tagline} poster={detailTvData.poster_path} />
           </div>

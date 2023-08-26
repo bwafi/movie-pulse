@@ -30,7 +30,7 @@ const PersonDetail = ({ params }: { params: { slug: number } }) => {
   return (
     <div className="w-full bg-green-black text-grey">
       <Layout>
-        <div className="flex flex-col lg:flex-row py-5">
+        <div className="flex flex-col lg:flex-row pt-16 lg:py-5">
           <div className="w-full lg:w-[25%] px-3 lg:px-5">
             <SideDetailPerson detailPersonData={detailPersonData} />
           </div>

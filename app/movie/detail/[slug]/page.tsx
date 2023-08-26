@@ -45,7 +45,7 @@ const MovieDetail = ({ params }: { params: { slug: number } }) => {
     <div className="w-full mx-auto bg-green-black text-grey">
       <Layout>
         <HeroDetail backDropImage={detailMovieData.backdrop_path} title={detailMovieData.title} />
-        <div className="flex lg:flex-row flex-col static lg:relative bottom-28 mx-2 lg:mx-10">
+        <div className="flex lg:flex-row mt-16 flex-col static lg:relative bottom-28 mx-2 lg:mx-10">
           <div className="w-full lg:w-[22%] px-3 lg:px-0 static lg:sticky top-5 z-10 max-h-[345px]">
             <SidePoster
               title={detailMovieData.title}
