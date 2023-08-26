@@ -37,7 +37,7 @@ const Sides = () => {
     <nav className="h-screen p-3 lg:p-5 bg-soft-black text-white">
       <div className="w-full">
         <div className="flex items-center gap-8">
-          <h1 className="text-lg lg:text-2xl font-semibold text-teal">
+          <h1 className="text-xl lg:text-2xl font-semibold text-teal">
             <a href="/">MoviePulse</a>
           </h1>
           <button onClick={handleMenu} className="block lg:hidden">
