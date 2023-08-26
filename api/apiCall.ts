@@ -10,6 +10,15 @@ export const discoverMovies = async () => {
   });
 };
 
+export const getTrendings = async (type: string, timeTrending: string) => {
+  return await axios.get(`${BASE_URL}/trending/${type}/${timeTrending}`, {
+    params: {
+      api_key: API_KEY,
+      region: "ID",
+    },
+  });
+};
+
 export const getTrendingsMovies = async (timeTrending: string) => {
   return await axios.get(`${BASE_URL}/trending/movie/${timeTrending}`, {
     params: {
@@ -28,7 +37,7 @@ export const getTrendingsTv = async (timeTrending: string) => {
   });
 };
 
-export const getList = async (type: string, list: string, page: number) => {
+export const getList = async (type: string, list: string, page: number = 1) => {
   return await axios.get(`${BASE_URL}/${type}/${list}`, {
     params: {
       api_key: API_KEY,
