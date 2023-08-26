@@ -16,6 +16,9 @@ module.exports = {
         "soft-black": "#393E46",
         white: "#EEEDED",
       },
+      screens: {
+        xs: "400px",
+      },
     },
   },
   plugins: [],

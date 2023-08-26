@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const Card = ({ item }: { item: any }) => {
   return (
-    <div className="mb-10 min-w-[45%] lg:min-w-[17%] min-h-[230px] lg:min-h-[350px] rounded-md overflow-hidden bg-black shadow-md border border-teal/30 hover:border-white/30 transition-colors duration-300">
+    <div className="mb-10 min-w-[45%] xs:min-w-[30%] sm:min-w-[20%] lg:min-w-[17%] min-h-[230px] lg:min-h-[350px] rounded-md overflow-hidden bg-black shadow-md border border-teal/30 hover:border-white/30 transition-colors duration-300">
       <Link
         href={`${item.title ? `/movie/detail/${item.id}` : `/tv/detail/${item.id}`}`}
         className="relative block w-full h-[180px] lg:h-[280px]">
