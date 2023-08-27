@@ -38,15 +38,6 @@ export const getTrailerVideos = async (type: string, movie_id: number | null) =>
   });
 };
 
-export const getTrendingPeople = async (timeTrending: string) => {
-  return await axios.get(`${BASE_URL}/trending/person/${timeTrending}`, {
-    params: {
-      api_key: API_KEY,
-      region: "ID",
-    },
-  });
-};
-
 export const getDetailPerson = async (id: number) => {
   return await axios.get(`${BASE_URL}/person/${id}`, {
     params: {
@@ -79,6 +70,16 @@ export const getCombineCredits = async (id: number) => {
     params: {
       api_key: API_KEY,
       region: "ID",
+    },
+  });
+};
+
+export const getSearch = async (query: string) => {
+  return await axios.get(`${BASE_URL}/search/multi`, {
+    params: {
+      api_key: API_KEY,
+      region: "ID",
+      query: query,
     },
   });
 };
