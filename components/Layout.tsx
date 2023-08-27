@@ -4,6 +4,7 @@ import Sides from "./Sides";
 import Footer from "./Footer";
 import Header from "./Header";
 import { useGlobalContext } from "@/context/context";
+import Search from "./Search";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   const { isOpen } = useGlobalContext();
@@ -22,6 +23,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
         </main>
         <Footer />
       </div>
+      <Search />
     </div>
   );
 };
