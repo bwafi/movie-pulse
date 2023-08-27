@@ -35,7 +35,7 @@ const Search = () => {
     <section className="w-full h-screen flex justify-center top-0 left-0 fixed bg-black/10 backdrop-blur-sm z-50">
       <div
         ref={wrapperRef}
-        className="w-6/12 max-h-[600px] absolute top-28 rounded-xl overflow-hidden bg-green-black shadow-lg border border-teal/30">
+        className="w-10/12 lg:w-6/12 max-h-[600px] absolute top-28 rounded-xl overflow-hidden bg-green-black shadow-lg border border-teal/30">
         <div className="flex items-center px-3 shadow-lg">
           <BiSearch className="text-2xl" />
           <input
