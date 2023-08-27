@@ -31,7 +31,7 @@ const navLinks = [
 ];
 
 const Sides = () => {
-  const { handleState } = useGlobalContext();
+  const { handleMenuState } = useGlobalContext();
 
   return (
     <nav className="h-screen p-5 bg-soft-black text-white">
@@ -40,7 +40,7 @@ const Sides = () => {
           <h1 className="text-xl lg:text-2xl font-semibold text-teal">
             <a href="/">MoviePulse</a>
           </h1>
-          <button onClick={handleState} className="block lg:hidden group">
+          <button onClick={handleMenuState} className="block lg:hidden group">
             <IoClose className="text-2xl group-hover:scale-110" />
           </button>
         </div>
@@ -52,7 +52,7 @@ const Sides = () => {
                 <li key={index}>
                   <Link
                     href={link.url}
-                    onClick={handleState}
+                    onClick={handleMenuState}
                     className="flex px-2 gap-3 py-2 text-sm hover:bg-white/10 hover:text-teal transition-colors ">
                     <Image src={link.icon} alt="heart" width={20} height={20} /> {link.title}
                   </Link>

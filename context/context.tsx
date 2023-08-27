@@ -1,28 +1,46 @@
 "use client";
-import { ReactNode, createContext, useContext, useState } from "react";
+import { Dispatch, ReactNode, SetStateAction, createContext, useContext, useState } from "react";
 
 type GlobalContextType = {
   isOpen: boolean;
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  handleState: () => void;
+  setIsOpen: Dispatch<SetStateAction<boolean>>;
+  searchOpen: boolean;
+  setSearcOpen: Dispatch<SetStateAction<boolean>>;
+  handleSearchState: () => void;
+  handleMenuState: () => void;
 };
 
 export const GlobalContext = createContext<GlobalContextType>({
   isOpen: false,
   setIsOpen: () => {},
-  handleState: () => {},
+  searchOpen: false,
+  setSearcOpen: () => {},
+  handleSearchState: () => {},
+  handleMenuState: () => {},
 });
 
 export const useGlobalContext = () => useContext(GlobalContext);
 
 export const GlobalProvider = ({ children }: { children: ReactNode }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [searchOpen, setSearcOpen] = useState<boolean>(false);
 
-  const handleState = () => {
+  const handleMenuState = () => {
     setIsOpen((prev) => !prev);
   };
 
-  return (
-    <GlobalContext.Provider value={{ isOpen, setIsOpen, handleState: handleState }}>{children}</GlobalContext.Provider>
-  );
+  const handleSearchState = () => {
+    setSearcOpen((prev) => !prev);
+  };
+
+  const value = {
+    isOpen,
+    setIsOpen,
+    searchOpen,
+    setSearcOpen,
+    handleSearchState,
+    handleMenuState,
+  };
+
+  return <GlobalContext.Provider value={value}>{children}</GlobalContext.Provider>;
 };

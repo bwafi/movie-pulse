@@ -7,7 +7,7 @@ import { useGlobalContext } from "@/context/context";
 import Search from "./Search";
 
 const Layout = ({ children }: { children: ReactNode }) => {
-  const { isOpen } = useGlobalContext();
+  const { isOpen, searchOpen } = useGlobalContext();
   return (
     <div className="flex relative w-full">
       <div
@@ -23,7 +23,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
         </main>
         <Footer />
       </div>
-      <Search />
+      {searchOpen && <Search />}
     </div>
   );
 };
