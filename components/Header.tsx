@@ -27,7 +27,7 @@ const Header = () => {
         <HiOutlineMenuAlt2 className="text-white text-3xl" />
       </button>
 
-      <button onClick={handleSearchState}>
+      <button onClick={handleSearchState} className="hover:scale-105">
         <HiOutlineSearch className="text-white text-2xl" />
       </button>
     </header>
