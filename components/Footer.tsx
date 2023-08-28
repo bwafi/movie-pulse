@@ -41,7 +41,7 @@ const Footer = () => {
             </a>
           </li>
           <li className="text-2xl hover:text-soft-black/80">
-            <a href="https://www.linkedin.com/in/syahroni-bawafi-93b422265/" target="_blank">
+            <a href="https://www.linkedin.com/in/syahroni-bawafi" target="_blank">
               <AiFillLinkedin />
             </a>
           </li>
